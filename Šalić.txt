@@ -1,0 +1,4911 @@
+
+
+
+
+
+
+
+
+ISPIT PREDAVANJE
+****************
+
+
+
+
+
+
+
+
+
+1. Što je točno a što netočno kad govorimo o računalnom razmišljanju
+
+Računalno razmišljanje
+• Način kako doći do mogućeg rješenja za kompleksni problem … i kasnije predstaviti rješenje koje će razumjeti čovjek, računalo ili oboje.
+Računalno razmišljanje NIJE
+• Razmišljanje kao računalo ili robot
+• Nije programiranje
+Proces korištenja računala za razumijevanje problema
+
+a, b, c, d pitalice
+programiranje ne spada u računalno razmišljanje 
+
+2. Koji su ključni elementi računalnog razmišljanja
+- dekompozicija, uočavanje uzoraka, apstrakcija, algoritam, provjera kvalitete rješenja 
+
+3. Koristeći pseudokod napišie komponentu koda koji traži korisnika unijeti ime i prezime, šifru i ulogiravanje usera
+
+funkcija provjera_pristupa():
+    unesi korisničko_ime
+    unesi lozinku
+
+    ako (korisničko_ime i lozinka postoje i odgovaraju):
+        omogući_pristup()
+    inače:
+        odbij_pristup()
+		
+4. Što je PEP?
+
+Python Enhancement Proposals. Dokumenti koji opisuju različite smjernice, poboljšanja za Python. Miz dokumenata koji definiraju sve vezano uz Python, od strukture i načina pisanja Pythonova programa pa do novih i starih funkcija unutar
+Pythona. PEP je način na koji tvorci Pythona komuniciraju sa širom programerskom zajednicom, jer je prijedloge, koji će ući u ove dokumente, moguće izravno uputiti osobama zaduženima za održavanje nekog segmenta sustava Python. 
+
+5. Tko je autor Pythona? 
+Godine 1991., Guido van Rossum (rođen 1955.) 
+
+6. Odakle Pythonu ime?
+Po seriji Monty Python's Flying Circus
+
+7. Odaberi ispravno naprisanu varijablu u Pythonu?
+
+! broj ne smije ići na početak, obično se koristi '_'
+
+POGREŠNO
+1broj = 6
+ime i prezime = 'Petar Perić'
+break = 'Gablec'
+naziv_racuna_$ = 'Devizna štednja u dolarima'
+
+TOČNO
+ime = 'Petar'
+prezime = "Peric"
+godina_rodenja = 1995
+zaposlen = True
+tezina = 86.7
+spol = 'M'
+jedan_bod = 23 
+
+
+8. Napiši program koji traži od korisnika da unese podatak i da ispišete podatak: naziv, godina proizvodnje, ocjena
+Svaki podatak ispiši u zaseban redak.
+
+naziv_filma = input('Unesi naziv filma: ')
+godina_proizvodnje = input('Unesi godinu proizvodnje filma: ')
+ocjena = input('Unesi ocjenu filma' )
+
+print ('Naziv filma: ', naziv_filma)
+print ('Godina proizvodnje: ', godina_proizvodnje)
+print ('Ocjena: ', ocjena)
+
+9. Kreiraj kolekciju podataka o osobi (ime, prezime, godina rođenja, adresa stanovanja i telefon). Ispisat svaki podatak u novom retku i opis o kojem podatku se radi
+
+* kolekcija podataka znači da treba napraviti nekakav riječnik
+
+osoba = {
+    'ime': 'Pero',
+    'prezime': 'Perić',
+    'godina_rođenja' : 1990,
+    'adresa' : 'Ilica 100',
+    'telefon' : '+385 91 2555 103'
+}
+
+for kljuc, vrijednost in osoba.items():
+    print(f'{kljuc}: {vrijednost}')
+
+
+
+ime: Pero
+prezime: Perić
+godina_rođenja: 1990
+adresa: Ilica 100
+telefon: +385 91 2555 103
+
+
+10. Što je klasa, a što objekt?
+
+Klasa je nekakva šablona koja opisuje karakteristike objekta, a objekt je instanca klase.
+Klasa je općeniti opis, a objekt je konkretizacija te apstrakcije.
+Klasa model koji definira karakteristi objekta. 
+
+KLASA:
+Korisnički definirani tippodatka
+• Predstavlja predložak, nacrt na temelju kojeg će se kreirati varijable koje ćemo koristiti unašem programu
+• Klasa opisuje objekt iz stvarnog života (npr. račun)
+
+Primjer:
+Klasa Šalica ima karakteristike:
+boja, tekst
+• Objekt 1
+• Boja = bijela
+• Tekst = "najbolji učenik Pythona na svijetu"
+
+11. Kako se zove alat za upravljanje relacijskim bazama podataka koji se instalira s Python programskim jezikom?
+SQLite
+
+12. Napište SQL upit koji dohvaća sve podatke iz tablice 'movies'. 
+Dostupan je nekakav code editor unutar kojeg se to može ispisati
+*SQLite zahtjeva da se na kraju piše ; 
+
+
+SELECT * FROM movies;
+
+
+13. Zadatak: kreirati klasu koja čuva podatke o djelatniku (ime, prezime, godina rođenja, radno mjesto, e-mail i broj telefona)
+
+class Djelatnik:
+    def __init__(self, ime, prezime, godina_rodenja, radno_mjesto, e_mail, broj_telefona):
+        self.ime = ime
+        self.prezime = prezime
+        self.godina_rodenja = godina_rodenja
+        self.radno_mjesto = radno_mjesto
+        self.e_mail = e_mail 
+
+14. Omogućite jednostavni tekstualni prikaz objekta djelatnika, kao i strukturiranu reprezentaciju objekta u konzoli. 
+Mora moći napravit izmjenu broja telefona i e-maila djelatnika pomoću dvije metode
+
+class Djelatnik:
+    def __init__(self, ime, prezime, godina_rodenja, radno_mjesto, e_mail, broj_telefona):
+        self.ime = ime
+        self.prezime = prezime
+        self.godina_rodenja = godina_rodenja
+        self.radno_mjesto = radno_mjesto
+        self.broj_telefona = broj_telefona
+        self.e_mail = e_mail 
+
+    def promijeni_mail(self, novi_email):
+        self.e_mail = novi_email
+
+    def promijeni_telefon(self, novi_telefon):
+        self.broj_telefona = novi_telefon
+
+    def tekstualni_prikaz(self):
+        return f'Ime i prezime: {self.ime} {self.prezime}\nGodina rođenja: {self.godina_rodenja}\nRadno mjesto: {self.radno_mjesto}\ne-mail: {self.e_mail}\nBroj telefona: {self.broj_telefona}'
+    
+    #Kontrola:
+    ja = Djelatnik(ime='Karmen', prezime='Lee', godina_rodenja='1990', radno_mjesto='prodavač', e_mail='karmen@karewn.hr,', broj_telefona='09191919191')
+
+    print(ja.tekstualni_prikaz())
+
+Ime i prezime: Karmen Lee
+Godina rođenja: 1990
+Radno mjesto: prodavač
+e-mail: karmen@karewn.hr,
+Broj telefona: 09191919191
+
+
+15. Što su i zbog čega se koriste moduli u Pythonu
+
+Skupovi funkcija, klasa i varijabli koje je moguće uvesti u program kako bi se olakšalo organiziranje i ponovno korištenje koda
+
+Programski kôd vrlo jednostavnih aplikacija može se nalaziti u samo jednoj datoteci.
+• Općenito, programski kôd većine aplikacija se razdvaja u više zasebnih, međusobno povezanih datoteka.
+• Svaku tu .py datoteku zovemo Python Modul.
+• Do sada smo koristili neke Python Module:
+• metoda randint() unutar Python Modula Random
+
+
+16. Nabrojite neke od komponenti IoT sustava
+
+- senzori za prkupljanje podataka, mikrokontroleri za obradu podataka i centralni sustavi za obradu i upravljanje tim podacima 
+
+- primjeri senzora: vlažonst, temperatura, barometar, vlažnost tla, detektor plina, detektor pokreta, ultrazvučni senzor udaljenosti, RFID komplet (čitač, kartica i privjesak), GPS reciver, žiroskop, 2,4 GHz Wireless, IC dioda (daljinac), motor, kamera
+
+
+17. Koja su dva najraširenija mikroračunala (platforme) za razvoj i hobby?
+
+Raspberry Pi i Arduino
+
+18. Na kojem opracijskom sustavu je baziran Raspberry Pi mikroračunalo?
+
+Linux ditrubucija bazirana na Debijanu - Raspbian (operacijsu sustav instaliran na RaspberryPi)
+
+19. Opišite koji su koraci najvažniju kod rada jednog IoT sustava
+
+    1. Prikupljanje podataka putem senzora
+    2. Slanje podataka mikrokontrolerima ili centraliziranom sustavu
+    3. Obrada podataka
+    4. Moguće upravljanje povezanim uređajima na temelju tih podataka
+
+#odgovor iz skripte
+    1. Preduvijeti (kupiti Raspberry Pi računalo, Raspberry Pi napajanje, microSD kartica, minimalno 8GB, Miš, tastatura i monitor, te opcionalno: Mrežni UTP kabel za priključak na mrežu, Senzori ili modul s integriranim senzorima i Kućište). 
+    2. Raspbian OS (Priprema microSD kartice i instalacija OS-a na microSD karticu). Ovaj korak se izvodi na desktop/laptop računalu koje ima Windows,      Linux ili MacOS operacijski sustav.
+    3. Povezivanje komponenti
+        1. Umetnemo microSD karticu u utor sa strane Raspberry Pi pločice
+        2. Priključimo miš, tipkovnicu i monitor
+        3. Opcionalno priključimo mrežni kabel
+        4. Priključimo Raspberry Pi napajanje na Raspberry Pi pločicu. VAŽNO To će pokretni pokretanjeRaspberry Pi računala pa je ovo potrebno napraviti kao zadnji korak.
+    4. Pokretanj (booting) i podešavanje OS-a
+        Nakon prvog pokretanja Raspberry Pi računala, potrebno je podesiti postavke:
+            - Mreže – IP adresa, naziv računala i sl.
+            - Regionalne postavke
+            - Eventualno dodati neke aplikacije
+
+20. Napišite program koji će beskonačno ispisivati vaše ime i prezime na ekranu Sense HAT emulatora
+
+from sense_emu import SenseHAT 
+import time 
+
+sense = SenseHAT()
+
+ime_prezime = 'Karmen K'
+
+while True:
+    sense.show_message(ime_prezime)
+    time.sleep(1)
+
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+Cell In[15], line 1
+----> 1 from sense_emu import SenseHAT 
+      2 import time 
+      4 sense = SenseHAT()
+
+ModuleNotFoundError: No module named 'sense_emu'
+
+21. Što je Pandas te za što se najviše koristi 
+
+Čitanje, pisanje i obradu podataka i radi s tablicama
+biblioteka u pajtonu koja se koristi za manipulaciju i analizu podataka. najlepće se koristi za čitanje, pisanje i analizu podataka
+
+• Pandas – naziv je nastao od Panel Data
+• Alat za analiziranje podataka u Pythonu
+• Specifičan po tome što tabelu iz CSV-a, Excela, SQL baze podataka pretvori u Python objekt s kolonama i retcima naziva DataFrame
+
+22. Što je NumPy te gdje se najviše koristi?
+
+Biblioteka u Pythonu koja se najviše koristi za rad s numeričkim podacima. Posebno za rad s višedimenzionalnim nizovima i matricama. Koristi se za matematičke analiz, statistiku i za znanstveno računanje. 
+
+NumPy – Numerical Python
+• temeljni Python paket za znanstvene proračune
+• NumPy donosi snagu i brzinu proračuna u aplikacijama pisanim u programskim jezicima C ili Fortranu, ali jednostavnost i lakoću korištenja i učenja programskog jezika Python
+
+23. Da li je NumPy standardni dio Python datoteke modula? 
+
+NIJE - potrebno ga je instalirati 
+
+Za rasliku od SQLite-a nije sastavni dio Pythona i ne instalira se odmah pri instalaciji Pythona. Treba ga dodati s 'pip install'
+
+Anaconda ima instalirano i Python i NumPy
+
+24. Kreirajte NumPy niz (array) od 10 nasumičnih brojeva te ha sortirajte
+
+import numpy as np
+
+niz = np.random.rand(10)
+sortirani_niz = np.sort(niz)
+
+print('Nasumični niz:', niz)
+print('Sortirani niz:', sortirani_niz)
+
+Nasumični niz: [0.80678162 0.90745995 0.69041461 0.05707508 0.80269864 0.51227946
+ 0.06997118 0.72156897 0.37853151 0.16436276]
+Sortirani niz: [0.05707508 0.06997118 0.16436276 0.37853151 0.51227946 0.69041461
+ 0.72156897 0.80269864 0.80678162 0.90745995]
+
+25. Koji tip grafa je najprikladniji za prikaz srednje vrijednosti? 
+
+Linijski graf ili stupčasti graf
+
+
+
+
+
+
+
+
+
+01_UVOD U RACUNALNO RAZMISLJANJE_PREZENTACIJA
+*********************************************
+
+
+
+
+
+
+
+
+
+Uvod u računalno razmišljanje
+
+Teme
+• Temelji računalnog razmišljanja
+• Algoritmi – dijagram toka i pseudo kôd
+• Primjena elemenata računalnog razmišljanja
+
+Temelji računalnog razmišljanja
+
+Sadržaj
+• Značajke računalnog razmišljanja
+• Osnovni elementi računalnog razmišljanja
+• Elementi računalnog razmišljanja kao alat u rješavanju svakodnevnih problema
+
+Značajke 
+računalnog 
+razmišljanja
+
+• Programiranje i kodiranje
+• Informatika ili računalna znanost 
+(Computer Science)
+• Računalno razmišljanje
+	• Način kako doći do mogućeg 
+	rješenja za kompleksni problem … 
+	i kasnije predstaviti rješenje koje će 
+	razumjeti čovjek, računalo ili oboje.
+• Računalno razmišljanje NIJE
+	• Razmišljanje kao računalo ili robot
+	• Nije programiranje
+
+Osnovni elementi računalnog 
+razmišljanja
+• Dekompozicija – Rastavi na manje dijelove
+	• Rastavljanje kompleksnih problema na manje, lakše rješive probleme
+	• „Rastavi” pa vladaj
+• Uočavanje uzoraka – Uoči ponavljanja i sličnosti
+	• Tražiti sličnosti između i unutar manjih problema
+• Apstrakcija – Usredotoči se samo na bitno
+	• Usredotočiti se samo na one ključne karakteristike i informacije, a sve druge zanemariti
+• Algoritam – Korak-po-korak upute
+	• Kreirati korak-po-korak slijed aktivnosti ili pravila koja će dovesti do rješenja problema
+• Provjera kvalitete rješenja
+	• Ne ulazi u elemente računalnog razmišljanja, ali je nužan obvezan korak za kvalitetno rješavanje problema
+	• Provjerite je li osmišljeno rješenje zaista rješenje problema
+	• Postoji li jednostavnije rješenje?
+
+Dekompozicija
+
+• Jedan od četiri osnovna elementa računalnog razmišljanja.
+• Predstavlja rastavljanje kompleksnih problema na manje, 
+jednostavnije, lakše razumljive probleme. Jednostavniji 
+problemi se onda mogu lako i jednostavno razumjeti i riješiti.
+• Koje komponente/dijelovi čine/opisuju …?
+• Jednostavnije je fokusirati se na rješavanje manjeg, 
+jednostavnijeg problema nego istovremeno rješavati cijeli 
+problem odjednom.
+
+Dekompozicija – Važnost
+
+• Multitasking NIJE moguć zbog načina kako radi naš mozak
+	• Vrlo brzo mijenjamo fokus s jedne aktivnosti na drugu.
+	• Rješavanje svih zadataka/problema odjednom je jako teško (ponekad i 
+	nemoguće)
+• Razbijanjem problema na manje dijelove dobit ćemo jasniju sliku o 
+redoslijedu ili prioritetu rješavanja manjih dijelova/zadataka 
+kompleksnijeg problema.
+• Pokušati razumjeti kako rade kompleksni sustavi je jako teško, ali 
+ako razumijemo kako rade pojedini, manji dijelovi tog sustava, onda 
+razumijevanje rada kompleksnog sustava u cjelini nije nikakav 
+problem.
+
+Dekompozicija – PRIPREMA KOLAČA
+
+• Što nam sve treba kako bi riješili ovaj problem?
+• Sastojci
+	• Ovisno o kolaču: brašno, šećer, čokolada, jaja, mlijeko …
+• Posuđe
+	• Ovisno o kolaču: velika zdjela, tava, kalupi …
+• Alati / uređaji
+	• Ovisno o kolaču: pećnica, hladnjak, mikser …
+• Obratite pažnju na dio „ovisno o kolaču”. Specifična 
+pitanja kao: Koje točno sastojke, posuđe, alate, pribor 
+… u ovom koraku zanemarujemo. Njih ćemo koristiti 
+kada budemo pripremali točno specifičan kolač
+
+Dekompozicija – POGODI BROJ
+
+• Zadatak: Pogodite broj
+između 1 i 100 u maksimalno
+9 pokušaja.
+
+Dekompozicija – PUSTI OTOK
+
+• Kako preživjeti?
+	• Hrana
+		• Ribolov
+		• Lov
+		• Skupljanje plodova
+		• Kuhanje / pečenje
+	• Voda
+		• Izvor
+		• Pročišćavanje
+	• Sklonište
+		• Lokacija
+		• Ugrijati se i osušiti
+		• Zaštita
+	• Bijeg
+		• Signalna vatra za brod i avion
+		• Signal za avion
+
+Dekompozicija – Strukturni dijagram
+
+Uočavanje uzoraka - generalizacija
+
+• Jedan od elemenata 
+računalnog razmišljanja
+• Traženje sličnosti koje manje 
+problemi imaju međusobno ili 
+unutar samih sebe
+• Što vrijedi za sve …?
+• Ove sličnosti se u računalnom 
+razmišljanju zovu uzorci
+
+Uočavanje uzoraka – Važnost 
+
+• Jedan općeniti primjer iz svakodnevnog života: 
+	• Ako ste ikada sastavljali lego kockice (ili komad namještaja kupljenog u 
+	dućanu ili nešto slično), u početku je bilo teško, dok pri kraju postaje 
+	sve lakše i lakše. To je zbog čega je lakše pri kraju je zbog uočavanja 
+	uzoraka.
+• Važnost
+	• „Otkrivanje tople vode” 
+	• Gubljenje vremena i energije na pronalaženje (otkrivanje) rješenja za 
+	probleme za koje smo rješenje već prije pronašli rješavajući drugi dio 
+	problema ili rješavajući neki sasvim drugačiji problem.
+
+Uočavanje uzoraka – PRIPREMA 
+KOLAČA
+
+• Jedan od elemenata 
+računalnog razmišljanja
+• Traženje sličnosti koje manje 
+problemi imaju međusobno ili 
+unutar samih sebe
+• Što vrijedi za sve …?
+• Ove sličnosti se u računalnom 
+razmišljanju zovu uzorci
+
+Uočavanje uzoraka – Pusti otok
+
+• Vatra
+	• Suho i toplo sklonište
+	• Sušenje odjeće
+	• Signalna vatra
+	• Kuhanje hrane
+	• Kuhanje kao pročišćavanje vode
+	• I jedna vrsta zaštite
+	• Kako zapaliti vatru???
+	• IDEJA – Rješenje koje smo naučili (kampiranje) ili čuli kako se radi 
+	prije (škola, tv …)
+• Koplje
+	• Zaštita
+	• Ribolov i lov
+• Lišće
+	• Za pokriti sklonište
+	• Za korpu za nositi/čuvati stvari
+	• Za dio zamke za ribolov i lov
+
+Apstrakcija – Kreiranje modela 
+
+• Jedan od elemenata 
+računalnog razmišljanja
+• Apstrakcija je proces filtriranja 
+(ignoriranja) nebitnih 
+karakteristika.
+• Apstrakcija služi kako bismo 
+kreirali generičku sliku o 
+problemu, odnosno služi za 
+kreiranje modela.
+
+Apstrakcija - važnost
+• Pomoću apstrakcije bolje razumijemo problem, odnosno 
+saznamo što zaista predstavlja problem
+• Odbacivanjem svega što nije ključno, dobivamo 
+pojednostavljenu sliku problema ili ideju o tome što je problem.
+• Ta ideja je u stvari model problema.
+• Raditi s modelom je puno lakše nego bez modela.
+
+Apstrakcija – PRIPREMA KOLAČA
+
+Općenito
+Važno za SVE kolače
+
+Svi kolači imaju 
+sastojke. Koje točno 
+sastojke, nije ključno.
+
+Svaki sastojak ima 
+podatak o količini 
+
+Vrijeme pečenja 
+
+Specifično
+Važno za JEDAN kolač
+
+Jaja, brašno, šećer …
+Neki kolači nemaju 
+šećer nego koriste med
+
+5 jaja, 300 g brašna.
+
+20 minuta na 180° C
+
+
+Apstrakcija – primjeri
+
+Apstrakcija – PUSTI OTOK
+
+• Mapa otoka
+• Štap za ribolov
+	• Točno definirana dužina štapa za 
+	ribolov – nije bitno
+	• Čvrstoća da izdrži težinu i otpor ribe –
+	bitno
+• Štap za koplje
+	• Točno definirana dužina štapa za 
+	ribolov – nije bitno
+	• Točno definirana težina – nije bitno
+	• Čvrstoća da može izdržati zakačenu 
+	oštricu, udaranje štapom…
+
+Algoritam
+
+• Jedan od elemenata 
+računalnog razmišljanja
+• Plan izvršavanja
+• Korak-po-korak slijed 
+instrukcija
+• Prikaz grafički kao dijagram 
+toka ili tekstualno pomoću 
+pseudo kôda
+
+Algoritam – Važnost 
+
+• Primjeri algoritama:
+	• Upute za sastavljanje lego kockica. Općenito upute za korištenje.
+	• Navigacija putovanja od jedne točke do druge
+• Važnost
+	• Realizacija plana je dobra koliko su dobro osmišljeni koraci i koliko 
+	dobro je definiran njihov redoslijed izvršavanja.
+	• Računala, odnosno računalni programi su onoliko dobri koliko su dobri 
+	algoritmi po kojima se ti programi izvršavaju.
+
+Algoritam – PUSTI OTOK
+
+• Svaki manji dio problema treba 
+imati svoj algoritam koji se onda 
+uklapa u jedan veliki algoritam za 
+rješenje problema
+• Algoritam za hranu
+	• Algoritam za ribolov
+	• Algoritam za skupljanje voća, povrća, 
+	biljaka
+	• Algoritam za lov
+	• Algoritam za pripremu hrane
+		• Algoritam za zapaliti vatru
+		• Recept kao algoritam za pripremu 
+		hrane prije konzumiranja
+
+Provjera kvalitete rješenja – Evaluacija 
+
+• Obavezno proći kroz korake algoritma i provjeriti:
+	• Jesu li svi koraci uključeni
+	• Je li redoslijed koraka ispravan
+• Uvjeti uspješnog algoritma:
+	• Jesu li koraci razumljivi/jasni?
+	• Je li kompletan – je li svaki dio problema uključen?
+	• Je efikasan? – rješava li algoritam problem u najmanje moguće koraka, 
+	uporabom dostupnih resursa…?
+
+Provjera kvalitete rješenja – Evaluacija 
+
+• Proces testiranja je jednostavan treba proći kroz sve korake 
+algoritma. Jednostavno, ali za kompleksnije algoritme može biti 
+teško.
+	• Algoritam za svaki manji problem
+	• Testiranje algoritma svakog manjeg problema
+• Provjera kvalitete algoritma - Preživljavanje na pustom otoku
+
+Algoritmi
+Dijagram toka i 
+pseudo kôd
+
+Sadržaj
+
+• Dijagram toka
+• Pseudo kôd
+
+Dijagram toka
+
+• Jedan od dva glavna načina prikaza algoritma
+• Jedan od najčešće korištenih načina za grafički prikaz algoritma
+• Pomoću simbola definira tip koraka i redoslijed izvršavanja 
+koraka
+
+Dijagram toka - simboli
+
+Naziv 				Simbol 		Primjena
+Početak / Kraj 					Predstavlja prvi, odnosno zadnji 
+								korak algoritma.
+Proces 							Nekakva instrukcija, zadaća, 
+								aktivnost koju treba izvršiti
+Odluka 							Uvjetno grananje slijeda aktivnosti 
+								na osnovu odluke.
+Ulaz podataka / Izlaz 			podataka Ulazni podaci u algoritam 
+								predstavljaju informacije čijom 
+								obradom se onda kreiraju izlazne 
+								informacije koje se koriste kao 
+								informacije za izvršavanje 
+								algoritma.
+Smjer 							Povezuje simbole u cjelinu. Strelica 
+								definira smjer, odnosno slijed 
+								izvršavanja koraka algoritma
+
+Dijagram toka – Gledanje filma
+
+Pseudo kôd
+• Jedan od dva glavna načina prikaza algoritma
+• Svaki programski jezik (Python, na primjer) ima jasno definiranu 
+sintaksu, odnosno pravila pisanja programskog kôda (instrukcija za 
+izvršavanje naredbi).
+• Pseudo kôd može sličiti programskom kôdu nekog programskog 
+jezika, ali pseudo kôd NEMA definiranu sintaksu.
+• Pseudo kôd možete pisti na bilo kojem jeziku kojeg vi i vaš tim 
+možete razumjeti
+• Mogu (ne moraju) se koristiti neke preporuke kao:
+	• UNOS za unos podataka (kako nije bitno)
+	• ISPIS za prikaz podataka (kako i na ekran ili pisač ili na mrežu… nije bitno
+
+Pseudo kôd - primjer
+
+ISPIS „Vaše ime i prezime”
+UNOS korisnik utipka ime i prezime
+POHRANI informacije koje je korisnik unio pohraniti u varijablu punoIme
+ISPIS „Pozdrav” + name
+ISPIS „Koliko godina imate?”
+UNOS korisnik utipka broj godina
+POHRANI pohrani broj koji je korisnik unio u varijablu dob
+AKO JE dob >= 18 ONDA
+	ISPIS „Vi ste punoljetni.”
+INAČE
+	ISPIS „Još niste punoljetni.
+
+Primjena elemenata 
+računalnog razmišljanja
+
+Sadržaj
+
+• Elementi računalnog razmišljanja
+• Primjena računalnog razmišljanja na probleme koji nisu 
+povezani s računarstvom
+• Ponavljanje s vježbama
+
+Primjena računalnog razmišljanja
+
+• U svakodnevnom životu
+• Pečenje kolača
+• Organizacija proslave
+• Snimanje filma
+• U poslovanju
+• Novi proizvodi: Mobilni telefon, Električni bicikl …
+• Razvoj softvera
+• Igrice. Primer jednostavnijih igrica: Križić–Kružić, Poveži 4, Vješala, 
+Potapanje brodova
+• Aplikacije. Primjer: Pametna kuća (Smart Home)
+
+Vježba
+• Organizacija proslave...
+• Snimanje filma
+
+Vježba
+• Križić kružić
+
+Križić – kružić
+
+• START – pokreni igricu
+• SET – kreiraj varijable: igrac, status_igre, polja_na_ploci, 
+oznaka, izabrano_polje te po potrebi varijabli dodijeli početnu 
+vrijednost
+• REPEAT UNTIL – ponavljaj niže navedene korake sve dok je 
+vrijednost varijable status_igre jednaka -1. 
+	• PRINT – na ekranu iscrtaj ploču koristeći vrijednosti 
+	iz varijable polja_na_ploci. 
+	• SET – ovisno o aktivnom igraču dodijeli vrijednost 
+	„X” ili „O” varijabli oznaka 
+	• INPUT – zatraži od igrača da napravi potez tako što će 
+	utipkati broj polja na koje želi postaviti svoju oznaku. 
+	• SET – izbor igrača dodijeliti varijabli izabrano_polje. 
+	• IF – provjeriti je li to polje slobodno 
+		• SET – ako je polje slobodno ažurirati varijablu 
+		polja_na_ploci 
+		• PRINT – a polje nije slobodno, javiti igraču da je 
+		napravio pogrešan potez te neka pokuša ponovo 
+	• SET status_igre – pomoću funkcije Status_Igre() 
+	provjeriti status igre. Funkcija Status_Igre() treba
+	vratiti broj koji ćemo dodijeliti varijabli status_igre. 
+	• IF – provjeriti koja je vrijednost varijable status_igre 
+		• Vrijednost 1 – PRINT – ispiši koji igrač je pobijedio 
+		• Vrijednost 0 – PRINT – ispiši neriješeno 
+		• Vrijednost -1 – SET – promijeni igrača tako da 
+		varijabli igrac dodijeliš vrijednost suprotnu od one 
+		koju je imao te se vrati u slijedeći krug
+• END – završi igru
+
+Križić – kružić – Primjer u Pythonu
+
+Križić – kružić – Inicijalizacija
+
+import os
+polje_na_ploci = [0,1,2,3,4,5,6,7,8,9]
+def Status_Igre(): #funkcija
+def Iscrtaj_Plocu(): #funkcija
+igrac = 1
+status_igre = -1
+... Dio kôda je izostavljen zbog čitljivosti slidea
+
+... Dio kôda je izostavljen zbog čitljivosti slidea
+while status_igre == -1:
+Iscrtaj_Plocu()
+if igrac % 2 == 1: 
+igrac = 1
+else:
+igrac = 2
+print('\n\nIgrac', igrac)
+izabrano_polje = int(input('Unesite broj polja na ploci: '))
+if igrac == 1:
+	oznaka_igraca = 'X'
+else:
+	oznaka_igraca = 'O’
+... Dio kôda je izostavljen zbog čitljivosti slidea
+while status_igre== -1:
+... Dio kôda je izostavljen zbog čitljivosti slidea
+if izabrano_polje == 1 and polje_na_ploci[1] == 1:
+	polje_na_ploci[1] = oznaka_igraca
+elif izabrano_polje == 2 and polje_na_ploci[2] == 2:
+	polje_na_ploci[2] = oznaka_igraca
+elif izabrano_polje == 3 and polje_na_ploci[3] == 3:
+	polje_na_ploci[3] = oznaka_igraca
+... Dio kôda je izostavljen zbog čitljivosti slidea
+elif izabrano_polje == 9 and polje_na_ploci[9] == 9:
+	polje_na_ploci[9] = oznaka_igraca
+else:
+	print('POGRESAN POTEZ ’)
+programPause = input(„Za nastavak pritisni <ENTER> tipku ...")
+igrac -= 1
+... Dio kôda je izostavljen zbog čitljivosti slidea
+while status_igre== -1:
+... Dio kôda je izostavljen zbog čitljivosti slidea
+status_igre = Status_Igre()
+igrac += 1
+Iscrtaj_Plocu()
+print('\n\nREZULTAT\n')
+if status_igre == 1:
+	print('Igrac',igrac-1,'je pobijedio!\n\n')
+else:
+	print('Nerijeseno\n\n')
+... Dio kôda je izostavljen zbog čitljivosti slidea
+
+Križić – kružić – Funkcija Status_Igre()
+
+def Status_Igre():
+	if polje_na_ploci[1] == polje_na_ploci[2] and polje_na_ploci[2] == polje_na_ploci[3]: return 1
+	elif polje_na_ploci[4] == polje_na_ploci[5] and polje_na_ploci[5] == polje_na_ploci[6]: return 1
+	elif polje_na_ploci[7] == polje_na_ploci[8] and polje_na_ploci[8] == polje_na_ploci[9]: return 1
+	elif polje_na_ploci[1] == polje_na_ploci[4] and polje_na_ploci[4] == polje_na_ploci[7]: return 1
+	elif polje_na_ploci[2] == polje_na_ploci[5] and polje_na_ploci[5] == polje_na_ploci[8]: return 1
+	elif polje_na_ploci[3] == polje_na_ploci[6] and polje_na_ploci[6] == polje_na_ploci[9]: return 1
+	elif polje_na_ploci[1] == polje_na_ploci[5] and polje_na_ploci[5] == polje_na_ploci[9]: return 1
+	elif polje_na_ploci[3] == polje_na_ploci[5] and polje_na_ploci[5] == polje_na_ploci[7]: return 1
+	elif (polje_na_ploci[1] != 1 and
+	polje_na_ploci[2] != 2 and
+	polje_na_ploci[3] != 3 and
+	polje_na_ploci[4] != 4 and
+	polje_na_ploci[5] != 5 and
+	polje_na_ploci[6] != 6 and
+	polje_na_ploci[7] != 7 and
+	polje_na_ploci[8] != 8 and
+	polje_na_ploci[9] != 9):
+		return 0
+	else:
+		return -1
+
+Križić – kružić – Funkcija Iscrtaj_Plocu()
+
+def Iscrtaj_Plocu():
+os.system('cls' if os.name == 'nt' else 'clear’)
+print('\n\n\t ALGEBRA d.o.o.’)
+print('\n\tKrizic Kruzic\n\n’)
+print('IGRAC 1 (X) - IGRAC 2 (O)’ )
+print()
+print('\t | | ’ )
+print('\t ' ,polje_na_ploci[1] ,' | ' ,polje_na_ploci[2] ,' | ' ,polje_na_ploci[3] )
+print('\t_____|_____|_____’ )
+print('\t | | ' )
+print('\t ' ,polje_na_ploci[4] ,' | ' ,polje_na_ploci[5] ,' | ' ,polje_na_ploci[6] )
+print('\t_____|_____|_____’ )
+print('\t | | ' )
+print('\t ' ,polje_na_ploci[7] ,' | ' ,polje_na_ploci[8] ,' | ' ,polje_na_ploci[9] )
+print('\t | | ' )
+
+Vježba
+Battleship game board - Battleship (game) - Wikipedia
+• Potapanje brodova 
+(Battleship)
+• Poveži 4 (Connect Four)
+• Vješala (Hangman)
+
+Vježba
+• Mobilni telefon
+
+Vježba
+• Električni bicikl
+• Zadatak: Primjernom 
+elemenata računalnog 
+razmišljanja osmislite 
+Električni bicikl 
+• Možda ima i softver + app, ne 
+samo hardver ;-)
+
+Vježba
+• Pametni dom
+„My Smart Home”
+• Zadatak: Primjernom 
+elemenata računalnog 
+razmišljanja osmislite My 
+Smart Home sustav (softver i 
+hardver)
+
+
+
+
+
+
+
+
+
+02_OSNOVE PROGRAMIRANJA U PYTHONU_PREZENTACIJA
+**********************************************
+
+
+
+
+
+
+
+
+
+Osnove
+programiranja u
+Pythonu
+
+Teme
+
+• Uvod u programski jezik Python
+• Varijable i tipovi podataka
+• Upravljanje greškama u programskom kôdu
+• Kontrola toka izvršavanja programskog kôda
+• Funkcije u Pythonu
+
+Uvod u
+programski jezik
+Python
+
+Sadržaj
+• Povijest programskog jezika Python
+• Razvojno okruženje
+• Početak programiranja u Pythonu
+	• Tradicionalni „Hello World” program
+	• Ključne riječi u Pythonu
+
+Povijest Pythona
+
+• Razvijen krajem 80-ih prošlog stoljeća
+	• Autor nizozemski programer Guido von Rossum
+• Prvo put objavljen 1991. (verzija 0.9.0)
+	• Tek 1994. objavljena verzija Python 1.0
+• 2000. godine objavljena verzija Python 2.0
+	• 2020. godine prestaje razvoj, unapređenje, popravak grešaka … na
+	verziji Python 2.0
+	• I dalje dostupna i funkcionalna, ali preporuka je preći na verziju 3
+• 2008. godine objavljena verzija Python 3.0
+
+Zen of Python
+
+• 1999 Tim Peters na Python mailing listu za unapređenje Python
+programskog jezika, poslao skup od 19 načela kako napisati
+dobar softver.
+• Python Enhancement Proposals (PEP ili PEP lista):
+	• PEP 20 – The Zen of Python
+	Petersova načela pod nazivom „Zen of Python” su, 2004. godine,
+	uključena u službenu PEP listu po oznakom PEP 20
+	(https://www.python.org/dev/peps/pep-0020/)
+	• PEP 8 – Style Guide for Python Code
+	(https://www.python.org/dev/peps/pep-0008/)
+
+Zen of Python
+
+1.Beautiful is better than ugly.
+2.Explicit is better than implicit.
+3.Simple is better than complex.
+4.Complex is better than complicated.
+5.Flat is better than nested.
+6.Sparse is better than dense.
+7.Readability counts.
+8.Special cases aren't special enough to break the
+rules.
+9.Although practicality beats purity.
+10.Errors should never pass silently.
+11.Unless explicitly silenced.
+12.In the face of ambiguity, refuse the temptation to
+guess.
+13.There should be one, — and preferably only one
+— obvious way to do it.
+14.Although that way may not be obvious at first
+unless you're Dutch.
+15.Now is better than never.
+16.Although never is often better than right now.
+17.If the implementation is hard to explain, it's a bad
+idea.
+18.If the implementation is easy to explain, it may be
+a good idea.
+19.Namespaces are one honking great
+idea — let's do more of those!
+
+Tko sve koristi Python?
+
+• Google tražilica, YouTube, Dropbox, Yahoo!, Walt Disney, Pixar,
+NASA, Red Hat, Nokia, IBM, Netflix, Yelp, Intel, Cisco, HP…
+• Igrice: Battlefield 2, Civilization IV, QuArK…
+• Python koriste za: sistemsko programiranje, web aplikacije, GUI
+aplikacije, igre, robotika, data science…
+
+Distribucije Pythona
+
+Anaconda – Data Science
+Samostalna distribucija
+
+Python – Unutar PowerShell
+
+• Pokrenuti PowerShell
+• Upisati python i pritisnuti ENTER
+• Dobit ćete tri znaka >>> na
+početku svakog reda. Tako znate
+da ste u Python načinu rada.
+• Pokušajte upisati:
+import this i pritisnuti enter
+• Upišite help i pritisnite enter pa
+onda help(print)
+
+Python – Unutar PowerShell
+
+• Zbrajanje – 3 + 5 = 8
+• Oduzimanje – 3 – 5 = -2
+• Množenje – 3 * 5 = 15
+• Potenciranje – 3 ** 5 = 243
+• Dijeljenje – 8 / 5 = 1.6
+• Cjelobrojno dijeljenje
+8 // 5 = 1.6
+• Modulo (ostatak dijeljenja)
+8 % 5 = 3
+
+Modulo – ostatak od dijeljenja
+
+• 8 % 5 = 3 zato jer u 8 imamo
+samo jednu peticu i ostalo nam
+je 3 od one druge petice.
+• 368 % 10 = 8 zato jer u 368
+imamo 36 desetica i ostalo je 8
+od zadnje desetice.
+Idealno za dobiti zadnju
+znamenku nekog broja.
+• 368 % 100 = 68 zato jer u 368
+imamo 3 stotice i ostalo je 68 od
+one četvrte stotice.
+Idealno za dobiti zadnje dvije
+znamenke nekog broja
+
+Aritmetički operatori – sažetak
+
+Operator	Namjena
+
+	+		Zbrajanje
+	-		Oduzimanje
+	*		Množenje
+	**		Potenciranje
+	/		Dijeljenje
+	//		Cjelobrojno dijeljenje
+	%		Modulo ostatak dijeljenja
+	
+Aritmetički operatori – skraćeni oblik
+
+Operator	Primjer		Osnovni oblik
+	+=		a += b		a = a + b
+	-=		a -= b		a = a - b
+	*=		a *= b		a = a * b
+	**=		a **= b		a = a ** b
+	/=		a /= b		a = a / b
+	//=		a //= b		a = a // b
+	%=		a %= b		a = a % b
+
+Python – Izlaz iz PowerShell
+
+• Izlazak iz Python command
+line načina rada:
+	• exite()
+	• Ctrl + Z
+• Ili jednostavno zatvorite
+prozor PowerShella
+
+IDLE Python
+
+• IDE – Integrated Development
+Environment
+• IDLE – Integrated Development
+Environment for Python
+• Start Menu – IDLE
+• Nešto naprednije sučelje za
+pisanje programskog kôda od
+PowerShell
+• Dokumentacija:
+https://docs.python.org/3/library/
+idle.html
+
+“Hello World”
+
+• Tradicionalno, prilikom učenja
+novog programskog jezika,
+prvi program ispisuje poruku
+„Hello World” na ekran.
+
+>>> print('Hello World')
+Hello World
+>>>
+
+„Hello World” – primjeri
+
+C++
+
+#include <iostream>
+using namespace std;
+int main(){
+	cout << “Hello World” << endl;
+	return 0;
+}
+
+Java
+
+public class HelloWorld{
+	public static void main(String[] args) {
+		System.out.println(“Hello World”);
+	}
+}
+
+Integrated Development Environment
+
+• Integrated Development Environment – IDE
+• Integrirani set alata nužnih za programiranje u nekom
+programskom jeziku.
+	• Text editor za pisanje kôda
+	• Kontrola verzija kôda
+	• Debugging – pronalazak i otklanjanje grešaka
+	• Compiler – prevođenje izvornog kôda u izvršni kôd (izrada .exe
+	datoteka)
+	• Ovisno o namjeni aplikacije koja se razvija, IDE omogućava pokretanje
+	aplikacije za potrebe testiranja funkcionalnosti
+	• …
+
+Besplatni IDE za Python
+
+• Atom – (https://atom.io/)
+• PyCharm Community – (https://www.jetbrains.com/pycharm/)
+• Sublime Text 3 – (https://www.sublimetext.com/)
+• Visual Studio Code – (https://code.visualstudio.com/)
+	• Mi ćemo koristiti Visual Studio Code – VS Code
+	• Nije isto kao i Microsoft Visual Studio
+
+Visual Studio Code – VS Code
+
+• Microsoft Visual Studio Code
+• Dostupan na:
+https://code.visualstudio.com/
+• Dostupna verzija za sve verzije
+platformi
+• Zahvaljujući ekstenzijama lako
+ga je prenamijeniti za gotovo
+bilo koji programski jezik
+• Jako popularan za Python i
+JavaScript programske jezike
+
+Kreiranje projekta u VS Code
+
+• Projekt u VS Code predstavlja vršna mapa u kojoj su
+pohranjene sve datoteke bitne za pokretanje programa
+(uključujući i fotografije i sl.)
+
+Kreiranje projekta
+u VS Code
+
+• Kreirajte vršnu mapu u kojoj ćete imati
+sve projekte vezane uz program.
+Primjer: D:\Algebra
+• Unutar mape "Algebra" kreirajte jednu
+mapu koja će objedinjavati sve vježbe
+nekog poglavlja.
+Primjer: D:\Algebra\Varijable
+• I na kraju unutar mape poglavlja
+kreirajte mapu za svaku vježbu,
+zadatak ili primjer.
+Primjer:
+D:\Algebra\Varijable\Vjezba001
+
+Kreiranje projekta
+u VS Code
+
+• Slijedeći korak je pokrenuti VS Code i
+dodijelitei
+• VS Code možete pokrenuti tako da na
+mapu koju ste kreirali za čuvanje
+Python projekta, kliknete desnim
+gumbom i odaberete "Open with
+Code". Otvorit će se VS Code s već
+selektiranim folderom.
+
+Kreiranje projekta
+u VS Code
+
+•VS Code možete pokrenuti tako da se
+unutar PowerShell konzole
+pozicionirate na mapu koju ste kreirali
+za čuvanje Python projekta te upišete
+"code ." (code razmak točka).
+
+Otvorit će se VS Code na pozicioniranom
+folderu.
+
+
+Kreiranje projekta
+u VS Code
+
+• Lijevi dio VS Code prozora bit će
+otvoren na alatu za rad s folderima i
+datotekama. Ako već imate datoteke
+unutar foldera one će biti prikazane.
+• VS Code prepoznaje ekstenzije
+datoteka pa će za .py datoteke
+pridružiti ikonu Pythona.
+• Desni dio VS Code prozora prikazuje
+Welcome ekran koji možete zatvoriti
+klikom na X na vrhu kartice tog
+prozora ili ga možete zanemariti.
+• Ako već imate datoteke unutar
+foldera, dvostruki klik na datoteku
+otvorit će datoteku u novoj kartici na
+desnoj strani prozora.
+
+Kreiranje projekta
+u VS Code
+
+• Projekt unutar VS Code možete
+kreirati i tako da pokrenete VS Code
+te odete u alat za rad s folderima i
+datotekama (prvi stupac lijevo, prva
+ikona).
+• Unutar drugog stupca lijevo, kliknuti
+na plavi gumb "Open Folder"
+
+
+Kreiranje projekta
+u VS Code
+
+• Odabrati folder koji želimo da bude
+vršni folder našeg projekta.
+• Kliknuti na gumb "Select Folder"
+• Rezultat će biti isti kao i kod
+prethodna dva načina kreiranja
+projekta unutar VS Code IDE
+programa.
+
+Kreiranje datoteke
+
+• Za pisanje programskog kôda potrebno
+je kreirati odgovarajuću datoteku koja će
+sadržavati naš programski kôd.
+• Unutar crvenog pravokutnika prikazane
+su ikone koje NISU uvijek vidljive. Ako
+pomaknete strelicu miša unutar ovog
+drugog lijevo stupca te ikone će se
+pojaviti.
+• Prva ikona služi za kreiranje datoteka,
+• Druga za kreiranje pod-foldera (kasnije),
+• Treća služi za osvježavanje prikaza. Ako
+ne vidimo neku datoteku koja se nalazi u
+folderu pa želimo osvježiti prikaz.
+
+Kreiranje datoteke
+
+• Klikom na prvu ikonu, pojavit će se
+okvir za unos naziva datoteke.
+• Upišite naziv datoteke i NE
+ZABORAVITE dodati ekstenziju .py
+• Ako zaboravite dodati ekstenziju VS
+Code će datoteku tretirati kao običnu
+tekstualnu datoteku i program se neće
+moći pokretati.
+• Ako ste pogriješili prilikom unosa,
+jednostavno desnim gumbom kliknite
+na naziv datoteke i odaberite
+"Rename" te ponovite unos.
+Preimenovanje datoteke možete
+napraviti i ako selektirate datoteku i
+pritisnete tipku F2 na vašoj tipkovnici.
+
+Kreiranje datoteke
+
+• Nakon što ste unijeli naziv i ekstenziju
+datoteke te unos potvrdili ENTER
+tipkom, otvorit će se novi prozor,
+odnosno kartica sa sadržajem
+datoteke.
+• Naša datoteka je prazna te je
+spremna za unos programskog kôda.
+• Ovo možete ponoviti za svaku novu
+datoteku koju želite dodati unutar
+projekta. Jedan zadatak, neka bude
+jedna datoteka.
+
+Pokretanje
+programa
+
+• U prozor datoteke upišite:
+print('Hello World from Visual Studio
+Code!')
+• Program pokrenite kombinacijom
+tipki CTRL+F5
+• Ili klikom na izbornik
+Run -> Start Without Debugging
+• Rezultat je prikazan u donjem dijelu
+prozora unutar crvenog pravokutnika
+
+Varijable i tipovi
+podataka
+
+Dobro je ponoviti
+• Programiranje (engl. Computer Programming)
+je pisanje instrukcija koje računalo „razumije”
+kako bi slijedom tih instrukcija izvršilo željene
+aktivnosti.
+• Instrukcija (engl. Instruction) predstavlja skup
+naredbi poredanih točno definiranim
+redoslijedom koje računalo „slijepo” slijedi. Ako
+je programer pogriješio u redoslijedu, računalo
+nije inteligentno da to prepozna i prilagodi
+redoslijed. Kao što je rečenica skup riječi
+poredanih određenim redoslijedom.
+• Naredba (engl. Statement) je najmanji dio
+programskog jezika koja predstavlja određenu
+radnju koju treba izvršiti.
+	• Primjer: print(); input(); if … else; while …
+
+Varijable u programiranju
+• Svaki program treba imati mogućnost
+„zapamtiti” jedan ili više podataka koji se
+koriste tijekom izvršavanja programa.
+• Za pohranu tih podataka koriste se varijable.
+• Varijabla predstavlja NAZIV lokacije unutar
+memorije računala u koju je pohranjen
+određeni podatak.
+• Svaku varijablu čine minimalno:
+	• Naziv varijable
+	• Tip podatka pohranjenog u varijabli
+	• Vrijednost pohranjena u varijabli
+• Varijable mogu imati i konstantnu vrijednost
+(PI, g, c …). Njih nazivamo konstantama.
+
+
+Naziv 		Vrijednost 	Memorijska
+varijable 	varijable 	adresa
+
+broj		15			0x0041F3
+						0x0041F4
+ime			Petar		0x0041F5
+						0x0041F6
+cijena		89.99		0x0041F7
+valuta		kn			0x0041F8
+						0x0041F9
+						…
+
+Svaka varijabla mora imati naziv
+
+• Pravila imenovanja varijabli ovise o
+programskom jeziku
+• Neka pravila vrijede za sve
+programske jezike.
+• Naziv varijable:
+• NE smije biti isti kao neka od ključnih
+riječi
+• NE smije početi brojkom
+• NE smije imati razmak
+• NE smije imati posebne znakove: !, ?,
+@, #, $, %, …
+
+
+and			exec		not
+assert		finally		or
+break		for			pass
+class		from		print
+continue	global		raise
+def			if			return
+del			import		try
+elif		in			while
+else		is			with
+except		lambda		yield
+
+Varijable u Pythonu – naziv varijable
+
+• Preporuke za imenovanje varijabli.
+• Naziv varijable bi trebao:
+	• Opisivati podatak koji je pohranjen u varijabli
+	• Imati znak „_” (podvlaka ili underscore)
+	umjesto razmaka.
+	*Opcionalno bez razmaka tako da svaka
+	riječ počinje velikim slovom camelCase
+	• Imati sve znakove napisane malim slovima
+	• Bez (hrvatskih) dijakritičkih znakova
+	• Zadržati dosljednost pa kako je varijabla dio
+	programskog kôda, bolje je za naziv
+	varijable koristiti engleski jezik, ali nikako NE
+	miješati malo engleski, malo hrvatski ili neki
+	drugi jezik.
+	
+Naziv varijable			Podatak koji čuva
+$x	 					’Patar Perić’ – NE
+ime_prezime				’Petar Perić’ – DA
+A						23,2° C – NE
+unutarnja_temperatura	28,9° C – DA
+vanjska_temperatura		23,2° C – DA
+polumjer kružnice		24.45 – NE
+polumjerKruznice*		52 – DA
+
+Varijable u Pythonu – naziv varijable
+
+• Nazivi varijabli u Pythonu su Case Sensitive. Python razlikuje velika i
+mala slova u nazivu varijable
+• Ime ≠ ime ≠ iMe
+• PEP 8 – Style Guide for Python Code
+(https://www.python.org/dev/peps/pep-0008/#naming-conventions)
+• Dodatno: Google preporuke za Python pravila imenovanja:
+https://google.github.io/styleguide/pyguide.html#316-naming
+
+Varijable u Pythonu – Primjeri
+
+TOČNO
+ime = 'Petar'
+prezime = "Peric"
+godina_rodenja = 1995
+zaposlen = True
+tezina = 86.7
+spol = 'M'
+
+POGREŠNO
+1broj = 6
+ime i prezime = 'Petar Pe
+rić'
+break = 'Gablec'
+naziv_racuna_$ = 'Devizna
+štednja u dolarima'
+
+Vježba – varijable
+
+• Kreirajte varijable (imenujte ih i dodijelite im odgovarajuću
+vrijednost) za:
+	• Ime, prezime, godinu rođenja, državu rođenja, status radnog odnosa,
+	težinu te spol
+	• Stranice a i b, četverokuta te za površinu tog četverokuta.
+
+Komentari u kôdu
+
+• Dio programskog kôda koji se
+NE izvršava
+• Namjena za kratke opise
+unutar kôda
+• Komentari u jednoj liniji
+počinju znakom "#"
+• Komentari koji se protežu na
+više linija počinju i završavaju
+trostrukim navodnicima
+""" Komentar … """
+
+# Komentar unutar jedne linije koda
+# Komentar u drugoj liniji koda
+"""
+Ovo je komentar koji može biti u
+jednoj liniji koda, ali i nastaviti
+se u drugoj ili trećoj liniji koda
+"""
+
+Komentari u kôdu – preporuka
+
+• NE pretjerivati s komentarima
+	• Ako je nešto očito u kôdu, nema potrebe za dodavanjem komentara
+• Pišite razumljiv kôd tako da nema potrebe za komentarima.
+• Lakše je napisati malo duži naziv varijable nego dodati komentar koji će opisati koja je
+namjena varijable.
+• Koristiti ih za izradu mjesta u kôdu koje treba još završiti – TODO komentari
+• PEP 8 -- Style Guide for Python Code (https://www.python.org/dev/peps/pep-
+0008/#comments)
+• "Docstring" ili "Documentation Strgins" su komentari koji se koriste za izradu
+dokumentacije kôda. To su komentari koji počinju i završavaju s tri navodnika. PEP 257 --
+Docstring Conventiones (https://www.python.org/dev/peps/pep-0257/)
+• Odlična knjiga o programiranju općenito: Robert C. "Uncle Bob" Martin. 2008 Clean Code:
+A Handbook of Agile Software Craftsmanship, Pearson
+
+Docstring
+help()
+Intellisense
+
+Znak ">" kada kliknete otvorit će okvir s
+više detalja.
+Ovaj okvir možete zatvoriti klikom na X
+u gornjem desnom dijelu okvira.
+
+Tipovi podataka u programiranju
+
+• Već smo spomenuli da varijable trebaju sadržavati tri informacije:
+	• Naziv varijable ✓
+	• Tip podatka pohranjenih u varijabli
+	• Vrijednost
+• Tipovi podataka
+	• Osnovni ili primitivni tipovi podataka
+		• Brojevi – cijeli i decimalni brojevi
+		• Znakovi (čak i znakovi za brojke)
+		• Boolean – točno/netočno ili True/False ili 1/0
+	• Kompleksni
+		• Tekst ili String – kolekcija znakova. Ponekad se i string ubraja u primitivne tipove podatka
+		• Kolekcije podataka – liste, rječnici … Ovdje može biti kolekcija znakova, ali i stringova i bilo
+		kojih drugih tipova podataka
+		• Korisnički definirani tipovi podataka – klase
+• Postoji još i podjela na ugrađene i korisnički definirane tipove podatka
+
+Ugrađeni tipovi podataka
+
+• Primitivni tipovi podataka
+	• Brojevi
+		• Integer – Cijeli brojevi
+		• Float – Decimalni brojevi
+	• Znakovi (čak i brojke kao znak)
+	• Boolean – točno ili netočno (True
+	ili False)
+• Složeni tipovi podataka
+	• Tekst ili string – kolekcija znakova
+	• Kolekcije podataka
+		• lista, rječnik, n-terac ili tuple, set…
+		
+Pixar filmovi
+
+Naslov			Ocjena		Broj 			Favorit
+(string)		(float)		pregleda		(Boolean)
+							(integer)
+
+Toy Story		9.78		159432			False
+A Bug’s Life	9.87		75365			False
+Cars			9.79		45645			True
+WALL-E			9.97		789654			True
+
+Ispis vrijednosti varijable – print()
+
+• Vrijednost varijabli često
+trebamo prikazati korisniku
+kako bi korisnik imao koristi
+od našeg programa
+• Za prikaz vrijednosti varijable
+na ekran koristi se naredba
+print()
+
+print(‘Hello World!’)
+
+>>> help(print)
+Help on built-in function print in module builtins:
+
+print(...)
+	print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+	
+	Prints the values to a stream, or to sys.stdout by default.
+	Optional keyword arguments:
+	file: a file-like object (stream); defaults to the current sys.stdout.
+	sep: string inserted between values, default a space.
+	end: string appended after the last value, default a newline.
+	flush: whether to forcibly flush the stream.
+
+Vježba – varijable i ispis na ekran
+
+• Kreirajte varijable (imenujte ih i dodijelite im odgovarajuću
+vrijednost) te ispišite na ekran odgovarajuće vrijednosti, za:
+	• Ime, prezime, godinu rođenja, državu rođenja, status radnog odnosa,
+	težinu te spol
+	• Stranice a i b, četverokuta te za površinu tog četverokuta.
+	• Izračun mjesečne potrošnje el. struje te cijene el. struje koju potroši
+	mikrovalna pećnica snage 1,3 kW ako se koristi 2 sata dnevno?
+	• Stranice trokuta, površinu trokuta P =(a * Va) / 2, 
+	Va je visina na stranicu a)
+	te opseg trokuta.
+	
+Vježba
+
+• Kreirajte varijable (imenujte ih i dodijelite im odgovarajuću
+vrijednost) te ispišite na ekran odgovarajuće vrijednosti, za:
+	• Ako automobil troši 5.3 litara na 100 km i ako je cijena goriva 9.56 kn
+	po litri (nije važno kojeg goriva), izračunajte koliko košta 1 km vožnje
+	automobilom. Prikažite mjesečni trošak (30 dana) odlaska na posao
+	automobilom koji je udaljen 20 km u jednom smjeru.
+	• Imate 10000 kn i možete zaboraviti na njih na 15 godina. Ako Vam
+	banka nudi 2.5% godišnju kamatu za taj iznos, koliko ćete zaraditi
+	nakon 15 godina. Jednostavni kamatni račun k = C * p * t
+		• k = iznos kamata odnosno prinos
+		• C = iznos glavnice
+		• p = godišnja kamatna stopa – NAPOMENA: 5% = 5 / 100 = 0.05
+		• t = vrijeme u godinama
+
+Unos vrijednosti od korisnika – input()
+
+• Vrijednost varijabli često
+trebamo dobiti od korisnika
+našeg programa
+• Za unos vrijednosti varijable
+od korisnika koristi se
+naredba input()
+
+ime = input(‘Upišite ime’)
+
+>>> help(input)
+Help on built-in function input in module builtins:
+
+input(prompt=None, /)
+	Read a string from standard input. The trailing newline is stripped.
+	The prompt string, if given, is printed to standard output without a
+	trailing newline before reading input.
+	If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise
+	EOFError.
+	On *nix systems, readline is used if available.
+
+Vježba – varijable, print() i input()
+
+• Zatražite od korisnika unos dva broja.
+	• Nakon unosa brojeva, ispišite:
+	zbroj, razliku, umnožak, količnik (rezultat djeljnja), potenciranje te modulo
+	unesenih brojeva
+	• Svaka operacija treba biti ispisana u novom redu, a ispis treba imati uključene
+	brojeve, znak računske operacije te rezultat.
+	• PRIMJER ISPISA:
+	• 5 + 8 = 13
+	• 5 - 8 = -3
+	• NAPOMENA Za sada kod unosa neka kod prvog unosa drugi broj NE bude 0
+	(nula), jer nije dopušteno dijeliti s nulom. To svakako pokušajte napraviti, ali
+	NE u prvom pokušaju.
+• PROBLEM!!! Dogodila se greška!
+
+Greške u programskom kôdu
+
+• Ljudi nisu savršeni.
+• Kôd koji ljudi napišu nije
+savršen, ima grešaka.
+• Kôd koji napišu roboti, koje su
+napravili ljudi, također ima
+grešaka
+
+BUG
+
+Znate li priču o bubi u
+računalu zbog koje je
+računalo prestalo raditi i
+zbog koje se kolokvijalno
+greške u kôdu nazivaju
+BUG.
+
+Greške u kôdu – tipovi grešaka
+
+• Syntax Error – greške u sintaksi. Krivo napisane
+naredbe, nazivi funkcija … Najčešće program NE
+možete pokrenuti s ovom greškom, ali IDE točno
+ukazuje gdje se nalazi ovakva greška.
+• Runtime Error ili Exception Error – greške koje
+nastaju prilikom izvođenja programa. Ponekad ih ne
+uočite odmah (primjer pokretanje zadnjeg zadatka).
+Malo ih je teže otkriti.
+• Bugs – greške koje je najteže otkriti. To su greške
+koje predstavljaju krivo funkcioniranje programa.
+Primjer: uz cijenu se ne obračunava PDV, nego su
+sve cijene iste. Dakle, program funkcionira, kôd je
+ispravno napisan, ali program ne radi ono što bi
+trebao.
+
+Konverzija tipova podataka
+
+• Ponekad je nužno napraviti konverziju iz jednog tipa podatka u
+drugi tip
+• Najčešće se konverzija radi iz teksta (string) u broj (integer ili
+float) ili obrnuto (Primjer kada trebamo vrijednost varijable
+zapisati u datoteku).
+• Postoje i naredbe za konverziju brojeva između brojevnih
+sustava – binarni, oktalni, dekadski, heksadekadski
+
+Konverzije tipova podatka
+
+• Integer – int('string_koji_konvertiramo') – cijeli broj
+• Float – float('string_koji_konvertiramo') – decimalni broj,
+• String – str(broj_ili_objekt_koji_konvertiramo) – pretvara u tekst,
+• Boolean – bool('True') – string u boolean
+OPREZ!!! Ova funkcija će pretvoriti bilo koji string koji ima znakove u
+True, osim jedne iznimke. To je 'False'.
+• Character – chr(broj_koji_konvertiramo) – pretvara u Unicode
+znak
+• Unicode Character – ord('string_koji_konvertiramo') – pretvara u
+cijeli broj koji predstavlja Unicode znak
+
+Konverzija između brojevnih sustava
+
+• Dodatne funkcije za konverziju između brojevnih sustava
+(NE tipova podataka)
+• Iz dekadskog u binarni – bin(cijeli_broj_koji_konvertiramo)
+• Iz dekadskog u oktalni – oct(cijeli_broj_koji_konvertiramo)
+• Iz dekadskog u heksadekadski – hex(cijeli_broj_koji_konvertiramo)
+• Iz … natrag u dekadski – int('broj_koji_konvertiramo', baza)
+	• Broj koji konvertiramo treba biti tipa string pa zato imamo navodnike
+	• Baza predstavlja bazu sustava iz kojeg konvertiramo. Binarni je 2, oktalni je 8,
+	heksadekadski je 16
+
+Vježba – varijable, print(), input(),
+konverzija
+• Prepravite prethodne vježbe i zadatke tako da vrijednosti varijabli tražite od korisnika te napravite
+potrebnu konverziju.
+	• Otvorite .py datoteke u kojima imate riješene zadatke te ih prepravite tako da koristite i naredbu input(). Zatim ih
+	možete pohraniti pod novim imenom ili ostaviti isti naziv.
+• IP adresa je adresa svakog računala na mreži koja se sastoji od četiri broja između 0 i 256. Primjer
+IP adrese: 192.168.0.184
+	• IP adresu iz primjera ispišite u binarnom, oktalno i heksadekadskom obliku.
+	• SAVJET: Za sada koristite zasebnu varijablu za svaki od četiri broja, odnosno dijela (okteta) IP adrese, ali ispišite
+	ih u istom obliku kako je navedeno u primjeru (192.168.0.184).
+	• Ispis treba napraviti za sve oblike brojevnih sustava.
+• Na stranici https://www.color-hex.com/color-palette/33532 imate boje Google logotipa. Pomoću
+odgovarajućih naredbi za konverziju pokušajte pretvoriti RBG zapise u HEX boja i obratno.
+	• Primjer:
+	• Naziv boje HEX zapis RGB (Red Green Blue)
+	• CRVENA #EA4335 (234, 67, 53)
+	• Za HEX zapis EA-43-35 trebate dobiti RGB zapis 234-67-53
+	• NAPOMENA Zanemarite početni # znak u HEX zapisu sa stranice.
+	• NAPOMENA HEX zapis čine tri grupe po dva znaka EA-43-35, svaka dva znaka čine jednu boju RGB
+
+Vježba – prepravite ove zadatke…
+
+• … tako da za unos vrijednosti pitate korisnika:
+	• Ako automobil troši 5.3 litara na 100 km i ako je cijena goriva 9.56 kn
+	po litri (nije važno kojeg goriva), izračunajte koliko košta 1 km vožnje
+	automobilom. Prikažite mjesečni trošak (30 dana) odlaska na posao
+	automobilom koji je udaljen 20 km u jednom smjeru.
+	• Imate 10000 kn i možete zaboraviti na njih na 15 godina. Ako Vam
+	banka nudi 2.5% godišnju kamatu za taj iznos, koliko ćete zaraditi
+	nakon 15 godina. Jednostavni kamatni račun k = C * p * t
+		• k = iznos kamata odnosno prinos
+		• C = iznos glavnice
+		• p = godišnja kamatna stopa – NAPOMENA: 5% = 5 / 100 = 0.05
+		• t = vrijeme u godinama
+
+Tip podataka string ili TEKST
+
+• STRING je tekstualni tip podataka
+	• Ime i prezime, ulica, grad, država, poruka …
+• Vrijednost string varijable deklariramo pomoću navodnika
+	• Svejedno je koje navodnike koristimo, ali uvijek moramo koristiti isti tip
+navodnika na početku i završetku teksta
+• Za unos vrijednosti string podatka od korisnika koristimo input()
+• NE možemo mijenjati string tip podatka. String je nepromjenjiv
+IMMUTABLE – Testirajte.
+• Konverzija u drugi tip podataka i obrnuto (int(), float(), str() ...)
+
+Format stringa – format()
+
+• Cilj pisati slično načinu pisanja rečenice
+1. Napišimo rečenicu koju želimo imati kao tekst
+'Puno ime i prezime je: Petar Perić'
+2. Nakon zadnjeg navodnika stavimo točku i upišemo format()
+'Puno ime i prezime je: Petar Perić'.format()
+3. Na mjesto vrijednosti upisujemo {} koliko god nam treba, a unutar
+format() dodamo nazive varijabli
+'Puno ime i prezime je: {} {}'.format(ime, prezime)
+4. Sve to pohranimo u neku varijablu
+puno_ime = 'Puno ime i prezime je: {} {}'.format(ime,
+prezime)
+print(puno_ime)
+
+Format stringa – kraći format
+
+• Kraći i potencijalno jasniji način formatiranja teksta
+1. Umjesto format() na kraju navodnika, koristimo slovo f prije
+prvog navodnika
+f'Puno ime i prezime je: Petar Perić'
+2. Isto kao i kod prvog načina, gdje smo pisali { } zagrade
+pišemo ih i dalje, samo što sada zagrade ne ostavljamo
+prazne nego u njih upisujemo nazive varijabli
+f'Puno ime i prezime je: {ime} {prezime}'
+3. I na kraju sve to opet pohranimo u neku varijablu
+puno_ime = f'Puno ime i prezime je: {ime}
+{prezime}'
+print(puno_ime)
+
+Format stringa – "\" Escape Character
+
+• "\" ili Backslesh ili Excape Character
+• Omogućava dodavanje nekih
+posebnih znakova unutar teksta
+• Nakon \ znaka se, bez razmaka
+dodaje znak koji želimo dodati
+• Desno u tabeli NISU sve kombinacije
+već najčešće korištene
+• Backslash neki prevode kao obrnuta
+kosa crta… ili obrnuti kroz (obrnuti "/").
+Mi ćemo koristiti backslash.
+
+Kombinacija		Naziv			Namjena
+\\				Backslash		Ispisuje JEDAN znak \
+								Prvi služi kao signal da
+								dolazi poseban znak
+								
+\'				Jednostruki		Ispisuje jedan
+				navodnik		jednostruku navodnik
+
+\"				Dvostruki		Ispisuje jedan dvostruki
+				navodnik		navodnik
+
+\n				Novi red		Ispis teksta nastavlja u
+								novom redu. Efekt isti
+								kao i tipka ENTER
+
+\t				Tab				Pomjeranje teksta u
+								desno. Efekt isti kao
+								tipka TAB
+
+Vježba – rad sa string-ovima
+
+• Pomoću nekog od načina formatiranja teksta ispišite podatke o
+osobi i filmu iz prethodnih primjera.
+• Ako string ne možemo mijenjati, kako onda možemo raditi
+zbrajanje, odnosno kombiniranje dva i više stringova u jedan?
+
+Kolekcije podataka
+
+• Adresar
+• Lista propuštenih poziva
+• To-Do lista
+• Diskografija albuma nekog
+glazbenika/glazbenice
+• Popis stvari koje želim
+napraviti prije 60. rođendana
+• TEMP folder na računalu
+• …
+
+Python kolekcije podataka
+
+• Lista – lista[1, 2, 3, ‘Petar Perić’, True]
+	• Lista koristi [ ] zagrade
+	• Svaki element liste ima svoj jedinstveni indeks ili redni broj
+	• Indeks brojevi počinju od 0 (nula)
+• Dictionary / Rječnik – dict{1 : ‘Ban Josip Jelačić’, }
+	• Rječnik koristi { } zagrade
+	• Elementi su par ključ : vrijednost
+	• Svaki element nema indeks, ali ima ključ. Zato ključ MORA biti jedinstven. Nema
+	duplikata.
+• Tuple / N-terac – tuple(1, 2, 3)
+	• Tuple koristi ( ) obične zagrade
+	• Tuple je NEPROMJENJIV. Kada kreirate Tuple, ne možete kasnije dodati ili maknuti
+	element.
+	• Svaki elementi N-terca ima svoj jedinstveni indeks ili redni broj
+	• Indeks brojevi također počinju od 0 (nula)
+
+Python kolekcije podataka – lista
+• Lista koristi [ ] zagrade
+• Svaki elementi liste ima svoj jedinstveni indeks ili redni broj
+• Indeks brojevi počinju od 0 (nula)
+	• lista = [154, 'tekst', 'jos jedan tekst', 3.14, True, 'Pa opet tekst']
+	• prazna_lista = []
+• Pristup pojedinačnom elementu liste
+	• prvi_element = zadaci[0]
+	• drugi_element = zadaci[1]
+	• treci_element = zadaci[2]
+• String – lista znakova
+
+Grupiranje instrukcija u blokove
+
+• Python za grupiranje kôda, umjesto { }
+zagrada, koristi uvlaku (tab) ili 4
+razmaka (space).
+• O ovome ne treba voditi brigu ukoliko
+koristite program za pisanje kôda jer
+se nakon : znaka za početak bloka,
+automatski novi red uvuče za potrebni
+broj razmaka
+• Ovo je jedan od načina kako Python
+želi povećati čitljivost programskog
+kôda. Kao paragraf.
+• Lako se vizualno izdvajaju cjeline,
+odnosno blokovi kôda.
+
+Primjer kôda:
+
+for element in kolekcija:
+	instrukcije nad element
+
+FOR petlja
+• Petlja koja neku instrukciju
+ponavlja određeni broj puta.
+• Ključna riječ for
+• FOR petlja se može čitati kao da
+računalu zadajemo zadatak:
+„Za svako ime unutar imenika:
+ispiši ime na ekran„
+
+for element in kolekcija:
+	aktivnost nad element
+	
+element predstavlja varijablu koja se
+koristi samo dok se izvršava FOR
+petlja, nakon toga ta varijabla
+postaje nedostupna.
+Naziv varijable element je
+proizvoljan.
+Naziv kolekcije kolekcija je
+predefiniran, odnosno to je naziv
+varijable u koju smo prethodno
+pohranili neku kolekciju podataka
+(elemenata)
+
+Raspon brojeva – range()
+
+• Ugrađena funkcija koja vraća listu
+brojeva unutar zadanog raspona
+• range(n) – vraća brojeve u rasponu
+od 0 (nula) do n uz korak 1
+• range(n, m) – vraća brojeve u
+rasponu od n (uključen) do m (m
+nije uključen) uz korak 1
+• range(n, m, k) – vraća brojeve u
+rasponu od n (uključen) do m (m
+nije uključen) uz korak k
+
+range(5) – 0, 1, 2, 3, 4, 5
+range(5, 10) – 5, 6, 7, 8, 9
+range(5, 10, 2) – 5, 7, 9
+
+Lista – osnovne naredbe
+
+• naziv_liste.append(novi_element) – naredba za dodavanje
+novog elementa na kraj liste
+• naziv_liste[indeks] = nova_vrijednost – naredba za izmjenu
+vrijednosti pohranjene u element liste na poziciji indeks
+• broj_elemenata_liste = len(naziv_liste) – len() naredba
+dohvaća broj elemenata pohranjenih u listi
+• Provjera je li tekst zaista lista znakova?
+
+Slice – lista[START : STOP : STEP]
+
+• Način kreiranja nove liste na osnovu manipulacije elementima
+prethodno kreirane liste. Primjer:
+	• izdvojiti zadnja dva elementa liste
+	• izdvojiti svaki treći element liste
+• Po sintaksi jako slično range() naredbi.
+• Primjeri na listi brojeva od 1 do 100.
+
+Lista – ostale naredbe
+
+• naziv_liste.clear() – naredba za brisanje svih elemenata liste
+• nova_lista = naziv_liste.copy() – naredba za kopiranje liste
+• PROBLEM!!! .copy() NE kopira listu!
+
+Debugging
+
+1.Kliknite na stupac lijevo od linije
+kôda. U našem primjeru to je linija
+6. Kada kliknete na taj stupac
+ispred te linije će se pojaviti točka.
+Ta točka se zove Break Point i to je
+točka u kojoj će se ZAUSTAVITI
+izvršavanje programa.
+2.Pokrenite program u DEBUGGING
+načinu rada jednostavno tipkom F5
+na tipkovnici ili iz izbornika
+Run -> Start Debugging
+
+Debugging
+1. Nakon klika na F5, VS Code će
+vam ponuditi što želite debugirati?
+2. Odaberite "Python File Debug the
+currently active Python file"
+
+Debugging
+
+1. Prvo kliknite na ikonu koja prikazuje
+aktivne programe.
+Ostali crveni okviri prikazuju:
+- Ikone za upravljanje pokretanjem
+programa. Opis na slijedećem
+slideu.
+- Liniju u kojoj je program zaustavljen,
+a kada se pomoću upravljačkih ikona
+izvršavanje programa pokrene na
+slijedeću liniju, onda će ta slijedeća
+linija biti označena.
+	- VAŽNO: Kôd u označenoj liniji NIJE
+	se izvršio. To znači da je izvršavanje
+	programa ZAUSTAVLJENO na
+	POČETKU te linije.
+
+Debugging
+
+- Ikone za upravljanje pokretanjem
+programa. Opis s lijeva na desno:
+	- Ikona s točkicama je za pozicioniranje
+	ovog okvira - zanemarite
+	- Continue (F5) – nastavi izvršavanje
+	programa do kraja.
+	- Step Over (F10) – ovo je ikona koju ćete
+	najčešće koristiti. Pokreće izvršavanje
+	programa red po red.
+	- Step Into (F11)
+	- Step Out (Shift + F11)
+	- Restart (Ctrl + Shift + F5)
+	- Stop (Shift + F5)
+
+Stupac VARIABLES prikazuje trenutnu
+vrijednost lokalnih i globalnih varijabli. Ako
+nemate prikaz kao na slici, raširite prikaz
+klikom na > znak.
+
+Lista – ostale naredbe
+
+• naziv_liste.clear() – naredba za brisanje svih elemenata liste
+• nova_lista = naziv_liste.copy() – naredba za kopiranje liste
+• broj_ponavljanja_u_listi = naziv_liste.cunt(element) – naredba koja prebrojava koliko se
+puta element pojavljuje u listi
+• naziv_liste.extend(nova_lista) – naredba koja proširuje postojeću listu novom listom
+• indeks_elementa = naziv_liste.index(element) – naredba koja dohvaća indeks pozicije
+na kojoj se nalazi element
+• naziv_liste.insert(indeks, element) – naredba za umetanje elementa na poziciju točno
+ispred pozicije označene navedenim indeksom
+• naziv_liste.sort() – naredba za sortiranje elemenata liste
+• naziv_liste.reverse() – naredba za sortiranje elemenata liste obrnutim redoslijedom
+
+Zadatak – lista
+
+• Napišite program koji kreira akorde na osnovu
+početnog tona, odnosno note.
+	• POJAŠNJENJE
+	• Akord se sastoji od tri tona koji se mogu ponavljati.
+	• Durski akord čine: početni ton, 4. ton te 7. ton.
+	Označava se samo velikim slovom početnog tona
+	ili velikim slovom početnog tona uz dodatak dur
+	•Molski akord čine: poćetni ton, 3. ton te 7. ton.
+	Označava se samo malim slovom početnog tona ili
+	malim slovom početnog tona uz dodatak mol
+	•Glazbena abeceda počinje od C:
+	C, C#, D, D#, E, F, F#, G, G#, A, A#, H
+	•Engleska oznaka za H ton je B tako da oni imaju A
+	B C D E F G tonove
+	•Postoji pojašnjenje u teoriji glazbe zašto je prvi ton
+	C, ali to sada nije važno.
+
+Kolekcije podataka – Rječnik
+• Dictionary ili Rječnik je kolekcija parova podataka.
+• Rječnik koristi { } zagrade
+• Svaki element Rječnika ima dva dijela:
+	• Key ili Ključ
+	• Value ili Vrijednost
+• Key ili Ključ mora biti jedinstven u Rječniku. Zato jer Ključ mora biti jedinstven dopušten
+tipovi podataka za Ključ su:
+	• String; Brojevi i N-terac
+• Pomoću Ključa pristupamo drugom dijelu para, odnosno podacima.
+Ključ je isto kao i Indeks u listi.
+• Value ili Vrijednost predstavlja sadržaj koji želimo pohraniti u kolekciju, odnosno Rječnik.
+Value može biti bilo koji tip podatka, a često je druga kolekcija kao lista ili drugi rječnik
+
+Rad s Rječnikom / Dictionary
+
+• Manipulacija podacima unutar Rječnika:
+	• naziv_rjecnika[key]
+	• naziv_rjecnika.items()
+	• naziv_rjecnika.keys()
+	• naziv_rjecnika.values()
+
+Vježba – rječnik
+
+• Kreirajte bazu s vozilima firme. ID
+svakog retka je cijeli broj, a podaci
+koji se čuvaju o svakom vozilu su:
+tip, proizvođač, registarska
+oznaka, godina prve registracije te
+cijena u eurima.
+Ispišite cijelu tablicu tako da ID
+odvojite od ostatka retka jednim
+TABom, a druge informacije
+formatirajte tako da prvi red tablice
+predstavlja naslovni red, a ostali
+redovi tablice predstavljaju podatke
+iz baze.
+
+ID 		Tip				Proizvođač		Registarska		Godina prve 	Cijena u EUR
+										oznaka			registracije
+
+1		Kamion			Iveco			OS 001 ZZ		2015			45.000,00 €
+2		Kamion			Iveco			OS 002 ZZ		2015			47.000,00 €
+3		Tegljač			MAN				RI 001 ZZ		2018			78.000,00 €
+4		Tegljač			MAN				RI 002 ZZ		2020			97.000,00 €
+5		Kombi			Mercedes Benz	ST 001 ZZ		2013			12.000,00 €
+6		Kombi			Volkswagen		ST 002 ZZ		2021			35.000,00 €
+7		Dostavno vozilo	Volkswagen		ZG 001 ZZ		2010			9.000,00 €
+8		Dostavno vozilo	Volkswagen		ZG 002 ZZ		2010			9.300,00 €
+
+Rad s Rječnikom / Dictionary
+
+• Manipulacija podacima unutar Rječnika nastavak:
+	• naziv_rjecnika.clear()
+	• naziv_rjecnika.pop(key, default)
+	• naziv_rjecnika.popitem()
+
+Kolekcije podataka – N-terac (tuple)
+
+• Tuple koristi ( ) zagrade
+• N-terac je Nepromjenjiv.
+• Primjena
+	• TUPLE se često koristi kao tip pohrane povezanih podataka unutar neke kolekcije.
+	Zato jer je nepromjenjiv koristi se kao ključ u Rječnicima
+	• Recimo podaci o nekoj osobi su pohranjeni u jednu TUPLE kolekciju, a onda te
+	TUPLE kolekcije su pohranjene u neku listu
+• Provjerite što vraćaju naredbe za Dictionary:
+	• naziv_rjecnika.items()
+	• naziv_rjecnika.keys()
+	• naziv_rjecnika.values()
+
+Kontrola toka
+izvršavanja
+programskog kôda
+
+Tok izvršavanja kôda
+
+• Često koristimo uvjete kako bismo kontrolirati tijek događaja. Recimo, kada dođete u
+banku i želite podići neki iznos novca. Ako imate dovoljno na računu i odobren minus,
+onda ćete dobiti novac, a ako nemate, dobit ćete ispriku da nemate dovoljno novaca na
+računu i da vam ne mogu isplatiti trženi iznos.
+• Uvjete koristimo i za kontrolu toka izvršavanja kôda. Za to koristimo petlje.
+• Ponavljanje kôda i predefiniranom broju iteracija
+	• FOR petlja – sve dok ima elemenata i kolekciji …
+• Uvjetno izvršavanje
+	• IF … ELSE; IF … ELIF … ELSE petlja – ako je uvjet ispunjen izvrši …
+• Uvjetno ponavljanje kôda
+	• WHILE petlja – sve dok je uvjet ispunjen izvršavaj …
+• Kombinacija
+
+Logički operatori
+
+Operator	Opis							Primjer
+>			Veće od 
+			– a je veće od b				a > b
+<			Manje od 
+			– a je manje od b				a < b
+==			Identično 
+			– a je identično b				a == b
+!=			NIJE identično 
+			– a nije identično b			a != b
+>=			Veće i jednako od 
+			– a je veće i jednako od b		a >= b
+<=			Manje i jednako od 
+			– a je manje i jednako od b		a <= b
+			
+Tablica logičkih izraza
+
+	A			B			A and B		A or B		not B
+✓ True		✓ True			✓ True		✓ True		✘ False
+✓ True		✘ False			✘ False		✓ True		✓ True
+✘ False		✓ True			✘ False		✓ True		✘ False
+✘ False		✘ False			✘ False		✘ False		✓ True
+
+IF ELSE UVJETNA NAREDBA
+
+• Analogno primjeru iz banke u vezi podizanja novca s računa, u
+programskim jezicima imamo naredbe koje ovisno o uvjetu
+određuju tijek izvršavanja programa. To je IF ELSE naredba i u
+svim programskim jezicima ima istu logiku.
+• AKO (IF) je uvjet ispunjen (njegova vrijednost je True), tada će
+se izvršiti blok instrukcija INAČE (ELSE) će se izvršiti drugi blok
+instrukcija.
+
+IF ELSE UVJETNA NAREDBA
+
+if prvi_uvjet:
+	izvrši instrukcije SAMO AKO je prvi_uvjet točan ili ima vrijednost True
+elif drugi_uvjet:
+	Ako prvi uvjet NIJE zadovoljen, znači da je prvi_uvjet NE točan ili ima vrijednost
+	False
+	Tada je izvršavanje programa došlo do ove linije pa OPET slijedi provjera
+	AKO je drugi_uvjet točan ili ima vrijednost True izvrši instrukcije u ovom bloku
+elif treci_uvjet:
+	isto kao i za drugi uvjet i za četvrti i peti i … nema ograničenja u ELIF
+	provjerama
+else:
+	AKO niti jedan od uvjeta NIJE ispunjen, odnosno svi su FALSE
+	TADA BEZ obzira na UVJETE I VRIJEDNOSTI IZVRŠI aktivnosti iz ovog bloka
+
+IF ELSE UVJETNA NAREDBA - Zadaci
+
+• Kreirajte listu od 1 do broja 30. Ispišite sve brojeve koji su
+djeljivi s 3, 6 i 9
+	• Provjera je li broj djeljiv s nekim drugim radimo pomoću % (modulo)
+	operanda.
+	• 15 % 3 NEMA ostatka, odnosno to je 0 pa je 15 djeljiv s 3.
+	• 16 % 3 je 1, odnosno NIJE jednak 0 pa 16 NIJE djeljiv s 3.
+• Napišite program koji provjerava pripada li unesena riječ vrsti
+riječi palindrom.
+	• Palindrom je riječ koja se jednako piše (i čita) s lijeva na desno i s
+	desna na lijevo.
+
+Vježba – rječnik ISPRAVITE ISPIS
+
+• Kreirajte bazu s vozilima firme. ID
+svakog retka je cijeli broj, a podaci
+koji se čuvaju o svakom vozilu su:
+tip, proizvođač, registarska
+oznaka, godina prve registracije te
+cijena u eur.
+Ispišite cijelu tablicu tako da ID
+odvojite od ostatka retka jednim
+TABom, a druge informacije
+formatirajte tako da prvi red tablice
+predstavlja naslovni red, a ostali
+redovi tablice predstavljaju podatke
+iz baze.
+
+IF ELSE NAREDBA – Zadaci tekst
+
+• U generičkom tekstu 'Lorem ipsum ...' (https://www.lipsum.com/)
+pronađite koliko se puta pojavljuje neka riječ.
+	• Probajte s Lorem.
+
+WHILE petlja
+
+• IF petlja je imala uvjet koji ako je ispunjen izvršava se blok programskog kôda te petlje
+SAMO JEDNOM.
+• Nakon završetka bloka programskog kôda IF petlje, program se nastavlja izvršavati dalje,
+izvan IF petlje.
+• WHILE petlja je slična. Isto tako ima uvjet koji ako je ispunjen, osigurava pokretanje bloka
+programskog kôda unutar WHILE petlje, ali nakon završetka tog bloka programskog kôda,
+WHILE petlja će ponoviti provjeru uvjeta.
+• Ako je uvjet ispunjen, OPET će se pokrenuti isti blok programskog kôda.
+• I to će se ponavljati SVE DOK (while) je uvjet ispunjen.
+• WHILE petlju možemo usporediti s FOR petljom, samo što je uvjet kod WHILE petlje
+jasno iskazan, naveden, dok kod FOR petlje je uvjet skriven i vezan je uz postojanje
+elemenata u kolekciji.
+
+WHILE petlja
+
+while uvjet:
+sve dok je uvjet točan izvrši instrukcije u ovom bloku.
+Kada završiš s izvršavanjem zadnje instrukcije ponovi provjeru uvjeta te
+ako je ispunjen ponovi izvršavanje bloka instrukcija. To ponavljaj SVE
+DOK uvjet nije ispunjen.
+• Prepravite zadatak „vozni park” tako da umjesto FOR, radi s
+WHILE petljom
+
+break, continue, pass
+
+• Kada želimo izvršavanje petlje završiti prije kraja - "nasilno izaći
+iz petlje" koristimo ključnu riječ BREAK
+• Kada NE želimo izaći iz petlje, ali želimo da se jedan ili više
+ciklusa petlje NE izvrši do kraja, nego da se jedan dio instrukcija
+PRESKOČI te ako su ispunjeni uvjeti započne novi ciklus,
+koristimo naredbu CONTINUE
+• Komentari se u kôdu ignoriraju, preskaču, ne postoje. Međutim,
+kada trebamo izvršiti naredbu koje na radi ništa koristimo
+naredbu PASS
+	• PASS možemo smatrati kao komentar koji se izvršava. Program
+	smatra da ima naredbu za izvršiti, samo što ta naredba ne radi ništa.
+	
+Zadaci
+
+• Preraditi vježbe vezane uz FOR petlju tako da umjesto FOR
+petlje koriste WHILE petlju:
+	• Je li riječ palindrom
+	• Baza vozila firme
+	• Generator akorda	
+	
+Zadaci
+• Napravite aplikaciju za prikaz tablice množenja. Korisnik treba moći unijeti do kojeg broja će se
+prikazati tablica.
+• Sjećate se Računalnog razmišljanja i pogađanja broja između 1 i 100. Sada imate dovoljno znanja
+da napišete program koji će Vam omogućiti igranje igre pogađanje broja.
+• Napravite aplikaciju za konverziju (u oba smjera):
+	•¸km u milju – (1 km = 0.6214 milje)
+	• °C u °F – (0°C = 32°F) obrnuto 𝑇𝑇(°𝐹𝐹) = 𝑇𝑇(°𝐶𝐶) ∗ (9/5) + 32
+	• kg u funtu (pounds) – 1 kg = 2.2046 pounds
+	• Litra u US galon – 1l = 0.2642 US gal
+	• kW (kilowatt) u ks (horsepoweer ili konjska snaga) – 1 kW = 1.3596
+• Rezultate u svim zadacima je potrebno formatirano ispisati na ekran.
+• U svim zadacima, nakon pokretanja programa, korisnik treba imati mogućnost izbora želi li nastaviti
+koristiti program ili želi završiti, odnosno izaći iz programa.	
+	
+Kamen-Škare-Papir
+Pogodi broj
+
+• Napravite program koji će
+vam omogućiti igranje igre
+protiv računala - kamen,
+škare, papir
+	
+	
+Funkcije u
+Python-u
+
+Funkcije
+
+• Funkcija kao crna kutija:
+	• Na jednoj strani ima ulaz u koji
+	ubacimo ono što želimo „obraditi”.
+	Mi ne znamo kako funkcija
+	obrađuje ono što smo joj predali
+	(čak nam nije bitno)
+	• Na drugoj strani ima izlaz gdje se
+	pojavi rezultat obrade. Kada
+	funkcija završi obradu onoga što
+	smo joj predali na obradu, funkcija
+	nam vrati obrađeni rezultat.
+• Ubacite novac u aparat i dobijt
+ćete kavu, čaj, slatkiš…	
+
+Funkcije
+
+• Skup instrukcija koje se izdvojene u zasebnu cjelinu.
+	• Instrukcije u funkciji izdvojene su kao i u FOR ili WHILE petlji
+	• Samo za pokretanje tih instrukcija vrijede drugačija pravila.
+• Funkcije pokrećemo pomoću „poziva” funkcije
+• Namjena funkcija je izdvojiti kôd koji se ponavlja u zasebnu cjelinu. Tako dobivamo:
+	• Jednom napisani kôd možemo koristiti koliko god nam puta treba
+	• Održavanje kôda je jednostavnije
+	• Debugging je jednostavniji jer nema redundancije (ponavljanja)
+• Funkcija bi trebala raditi samo jednu aktivnost. Funkcija koja pohranjuje podatke u bazu,
+ne treba računati s tim podacima, ne treba pitati korisnika da unese podatke … funkcija iz
+primjera ima samo jednu funkciju, a to je pohrana podataka u bazu
+• Metode – pojednostavljeno, metode su funkcije unutar klasa.
+	
+Funkcije imaju
+
+• Naziv
+	• Koristi se pokretanje funkcije (ovo još nazivamo ”poziv” funkcije)
+	• Vrijede ista pravila kao i za varijable
+• Argumente ili parametre
+	• To su podaci koje će funkcija prihvatiti na ulazu i obratiti
+	• Funkcije mogu, ali i ne moraju imati parametre. To znači da ima funkcija koje ne zahtijevaju ništa na
+	ulazu da bi obavile posao (funkcija koja ispisuje glavni izbornik). Dovoljno je samo pozvati takve
+	funkcije
+• Tijelo ili blok instrukcija
+	• Predstavlja skup instrukcija koje će izvršiti potrebnu transformaciju ulaznih podataka ili će samo
+	izvršiti određenu akciju.
+	• Ovo predstavlja način kako funkcija obavlja svoju namjenu.
+• Rezultat ili return parametar
+	• Funkcije nakon obrade argumenata „vrate” nekakav rezultat. Neke funkcije ne vrate „ništa”, nego
+	samo ispišu poruku o uspjehu ili neuspjehu aktivnosti.
+
+Funkcije – osnovna podjela
+
+Ugrađene funkcije
+• Svaki programski jezik ima
+ugrađene funkcije
+	• help()
+	• print()
+	• input()
+	• int(), float(), str()
+	• len()
+	• …
+	
+Korisnički definirane funkcije
+• Funkcije koje kreira
+programer ovisno o
+potrebama programa
+
+Ugrađene funkcije
+
+• Do sada smo upoznali neke ugrađene funkcije
+• Uz Python se često dodaje „Batteries included”
+	• Dakle, većinu toga što trebate dolazi u paketu
+• Neke opcije ipak treba uključiti – moduli
+• Moduli predstavljaju skup funkcionalnosti koje su izdvojene u
+zasebnu cjelinu.
+	• Moduli imaju svoje specifične funkcije
+• Neki su uključeni odmah, a neke module treba uključiti po potrebi
+• Dio rezultata help(print):
+Help on built-in function print in module builtins:
+
+Moduli
+
+• Uključivanje modula se radi na početku datoteke pomoću ključne riječi import iza koje
+dolazi naziv modula
+• Kasnije možemo koristiti ugrađene funkcije iz tog modula
+• Neki od ugrađenih modula:
+	• Random – funkcije za generiranje nasumičnih brojeva
+	• Math – matematičke funkcije kao potenciranje, kvadriranje, trigonometrijske fukcije i sl.
+	• Datetime – funkcije za upravljanje tipom varijabli za pohranu vremena (datuma i vremena kao sati,
+	minuta, sekundi)
+	• Os – funkcije za rad s nekim elementima operativnog sustava na kojem se pokreće Python program.
+	Na primjer datoteke, mape, konzola i sl.
+• Ako postoje „ugrađeni” moduli, znači da postoje i „vanjski” moduli. To su moduli koji ne
+dolaze s instalacijom Pythona i potrebno ih je naknadno instalirati.
+	• Takve module ćemo najviše koristiti kod obrade velike količine podataka, a neke i ranije
+
+Korisnički definirane funkcije
+
+• Funkcije koje ovisno o potrebama programa radimo sami
+• Kreiranje funkcije u Pythonu:
+def naziv_funkcije(argumenti):
+""" Docstring """
+instrukcije
+• Kreiranje funkcije počinje ključnom riječi def
+• Nakon def dolazi naziv funkcije, po pravilima koja vrijede za varijable
+• Iza naziva funkcije slijedi lista argumenata, međusobno odvojenih
+zarezom te grupiranih unutar zagrada
+• Na kraju prve linije obavezna :
+• Odmah ispod deklaracije funkcije, opcionalno se dodaje Docstring. Opis
+što radi funkcija te koje argumente prima.
+• I nakon toga piše se kôd koji radi ono zbog čega smo i kreirali funkciju.
+
+Zadaci
+
+• Preraditi prethodne vježbe tako da sada koriste funkcije:
+	• Je li riječ palindom
+	• Baza vozila firme
+	• Kamen-Škare-Papir
+	• Izradite aplikaciju za konverziju mjernih jedinica tako da korisnik bira
+	koju jedinicu će konvertirati u koju
+	• Izradite aplikaciju za preračunavanje potrošnje goriva automobila u
+	kune uz mogućnost izbora izračuna koliko maksimalno auto smije
+	trošiti na 100 km, ako je ciljana mjesečna potrošnja X kuna?
+
+Korisnički definirane funkcije – vježbe
+• Kupovina u online dućanima je postala
+svakodnevica. Za to nam je potrebna kreditna
+kartica. Ali Internet nije sigurno mjesto.
+Napišite program koji će uneseni broj kartice
+korisnika zaštititi tako da sve znakove osim
+zadnja četiri maskira pomoću # znakova.
+Primjer:
+	• Broj:
+	521478523691234, treba biti: ###########1234
+	• Dodatak:
+	• Dodajte mogućnost da ako je korisnik unio broj
+	kartice s "-" znakovima da se onda ti znakovi ne
+	zaštićuju.
+	3698-521-47852, treba biti: ####-###-#7852
+	• Dodatno neka korisnik bira kojim znakom će zaštiti
+	broj kartice.
+
+Korisnički definirane funkcije – vježbe
+
+• Prepravite zadatak koji
+generira akorde na osnovu
+početnog tako da se
+generiranje akorda izvršava u
+funkciji
+
+Vježba
+
+• Izradite igricu Križić kružić
+• Za sada se igrica pokreće u
+konzoli.	
+
+Identity
+Management
+
+Funkcionalnosti:
+- Predefinirani Administrator sustava
+koji može dodati nove korisnike u
+sustav, ažurirati i brisati postojeće.
+- Svaki korisnik ima: ime, prezime,
+korisničko ime (UserName) i Zaporku
+(Password)
+- Zaporka (Password) mora imati
+minimalno 10 znakova
+- Korisničko ime (UserName) mora biti
+jedinstveno
+Uspješna prijava na ekranu ispisuje
+poruku:
+Dobro došli, {ime} {prezime}
+
+Napravite program za
+rad na pultu u banci
+
+Program za sada izvršava u konzoli
+Funkcionalnosti:
+• Izbornik
+• Otvaranje računa tvrtke
+• Prikaz stanja računa
+• Prikaz prometa po računu
+• Polog novca na račun
+• Podizanje novca s računa
+• Izlaz iz programa (program se nakon
+svake akcije vrati na početni izbornik
+u kojem postoji opcija Izlaz)
+
+
+
+
+
+
+
+
+
+03_PROGRAMIRANJE U PYTHONU_PREZENTACIJA
+***************************************
+
+
+
+
+
+
+
+
+
+Programiranje
+u Pythonu
+
+Teme
+• Korisnički definirani tipovi podataka
+• Rad s datotekama
+• Rad s bazama podataka
+• Rad s podacima s Interneta
+
+Korisnički
+definirani tipovi
+podataka
+
+Primjer Račun
+
+• Kreirajte aplikaciju za izradu
+računa
+• Uz svaki račun čuvajte sljedeće
+podatke:
+• Broj računa
+• Datum izdavanja
+• Lista stavki:
+• Proizvod 1 – cijena
+• Proizvod 2 – cijena
+• Proizvod 3 – cijena
+• …
+• Iznos PDV-a
+• Ukupan iznos
+
+Korisnički definirani tipovi podataka
+
+• Na primjeru aplikacije za izradu računa se vidi koliko bi korisno
+bilo imati tip podatka racun. To bi bio tip podatka koji bi opisivao
+sva svojstva i mogućnosti (funkcije) objekta račun.
+• Zbog jednostavnije izrade aplikacija, a kasnije i održavanja te
+proširenja funkcionalnosti aplikacije, koriste se korisnički
+definirani tipovi podataka.
+• Korisnički tipovi podataka, opisuju objekte (ili pojave) iz
+stvarnog života zbog kojih se razvija određena aplikacije.
+• Primjer: osoba, firma, račun, kategorija_proizvoda…
+
+Klasa (class, eng.)
+
+• Korisnički definirani tip
+podatka
+• Predstavlja predložak, nacrt
+na temelju kojeg će se kreirati
+varijable koje ćemo koristiti u
+našem programu
+• Klasa opisuje objekt iz
+stvarnog života (npr. račun)
+
+Klasa i objekti
+
+• Klasa Šalica ima karakteristike:
+boja, tekst
+• Objekt 1
+• Boja = bijela
+• Tekst = "pip install coffee"
+• Objekt 2
+• Boja = crna
+• Tekst = "pip install coffee"
+• Objekt 3
+• Boja = crna
+• Tekst = ">>> from coffee import *"
+
+Sintaksa za kreiranje i korištenje klasa
+
+• Ključna riječ class
+• Naziv klase preporuka je da
+počinje velikim početnim slovom
+• Unutar bloka kôda klase se
+deklariraju:
+• Opis klase pomoću DocStringa
+• Karakteristike klase ili properties
+• Funkcije, ako su unutar klase
+nazivamo metode
+
+class NazivKlase:
+'''DocString'''
+	karakteristika1
+	karakteristika2
+	def metoda1(self):
+		pass
+		
+objekt = NazivKlase()
+objekt.karakteristika2
+objekt.metoda1()
+
+Me, mySELF and I
+
+• SELF se koristi u deklaraciji
+klasa kako bi se jasno
+označilo interno (unutar
+klase) svojstvo ili interna
+metoda
+• SELF se odnosi na objekt nad
+kojim se metoda/svojstvo
+poziva
+Oxford Dict definicija za SELF:
+"A person’s PERSONALITY or
+CHARCATER that makes them
+different from other people."
+
+Primjer klasa TV
+
+• Klasa TV aparat:
+• Širina, visina, dijagonala
+• …
+• Funkcije
+• Uključi TV
+• Promijeni program
+• Podesi glasnoću
+
+Primjer klasa Račun
+
+• Klasa Racun:
+• Broj računa
+• Datum izdavanja
+• Lista stavki:
+	•Redni broj – Proizvod 1 – cijena
+	•Redni broj – Proizvod 2 – cijena
+	•…
+• Iznos PDV-a
+• Ukupan iznos
+• Funkcije:
+	•Obračunaj PDV
+	•Izračunaj ukupan iznos
+	•Ispiši račun
+	•Promijeni stavku
+	•Izbaci stavku
+
+Nasljeđivanje
+
+Klase mogu naslijediti neka
+svojstva od svojih "roditelja", a
+neka svojstva imati jedinstvena
+za sebe.
+
+Primjeri:
+- Osoba
+	-Fizička osoba
+	-Pravna osoba
+- Vozilo
+	-Motocikl
+	-Automobil
+	-Kamion
+
+Klasa kao svojstvo druge klase
+
+• Ako je klasa tip podatka, onda za neko svojstvo moramo koristiti određeni
+tip klase.
+• Primjeri:
+	• Račun – osim definiranih svojstava, račun ima i kolekciju objekata koji su definirani
+	kao klasa Stavka:
+		• Svaka stavka ima:
+			•Redni broj
+			•Proizvod koji je po tipu objekt klase Proizvod (naziv, šifra, opis, osnovna cijena)
+			•Količina
+			•Popust
+		• Svaki račun može dodati i ukloniti Stavku iz kolekcije Stavki
+		• Ispisati račun
+
+Zadaci
+Illustration by Freepik Storyset
+- Evidencija Kupaca i
+Djelatnika Firme
+	- Osoba
+		- Fizička osoba
+		- Pravna osoba
+- Evidencija Vozila u Firmi:
+	- Vozilo
+		- Motocikl
+		- Automobil
+		- Kamion
+		- Radni stroj
+
+Moduli u
+Pythonu
+
+Moduli
+
+• Programski kôd vrlo jednostavnih
+aplikacija može se nalaziti u samo
+jednoj datoteci.
+• Općenito, programski kôd većine
+aplikacija se razdvaja u više zasebnih,
+međusobno povezanih datoteka.
+• Svaku tu .py datoteku zovemo Python
+Modul.
+• Do sada smo koristili neke Python
+Module:
+	• metoda randint() unutar Python Modula
+	Random
+
+Python Paketi
+
+• Python Modul predstavlja svaku .py datoteku, dok Python Paket
+predstavlja više međusobno povezanih .py datoteka (Python
+Modula) smještenih u jednu mapu, koji zajedno čine jednu
+smislenu cjelinu.
+• Svaki Python Paket unutar svoje mape može imati
+jednu __init__.py datoteku, koja može biti i prazna.
+• Preporuka je programski kôd kompleksnijih aplikacija podijeliti u
+smislene cjeline – Pakete.
+• Python Paketi, iako se razlikuju od Python Modula i dalje
+nazivaju Python Moduli.
+
+Datetime, time i dateutil moduli
+
+• Moduli za upravljanje podacima o
+datumima, vremenom, vremenskim
+intervalima, vremenskim zonama
+• datetime možemo smatrati kao tip
+podatka u kojem čuvamo informaciju
+o vremenu.
+• time modul je jako sličan datetime,
+ima jednu korisnu metodu
+time.sleep(broj_sekundi) za
+pauziranje izvršavanja programa
+• dateutil – pomoćni modul uz datetime
+za rad s vremenskim zonama
+
+Datetime i dateutil najvažnije metode
+
+• datetime.date – čuva podatke o datumu. Godina, mjesec i dan
+	• datetime.date.today() – današnji datum
+• datetime.time – čuva podatke o vremenu. Sat, minuta, sekunda i milisekunda
+• datetime.datetime – čuva podatke o datumu i vremenu i vremenskoj zoni
+	• datetime.datetime.now() – sadašnji trenutak koji uključuje današnji datum i vrijeme
+• datetime.timedelta – razlika između dva vremenska trenutka izražena u broju dana,
+sati, minuta i sekundi ili samo broju dana, broju sati
+• dateutil.tz.gettz(naziv_vremenske_zone) – služi za konstruiranje objekta vremenske
+zone, koji će datetime modul koristiti za preračunavanje vremena u različitim
+vremenskim zonama
+
+Formatiranje datuma i vremena
+
+• Prilikom unosa ili prikaza
+datuma i vremena, potrebno
+je prilagoditi prikaz jeziku
+korisnika našeg programa
+• 4/5/2021 – može biti 4.
+svibnja, a može biti i 5.
+travnja.
+
+*Ovisi o formatu prikaza: dan/mjesec/godina ili
+mjesec/dan/godina
+
+Simbol
+Opis
+
+%d
+Dan u mjesecu (s ili bez nule ispred)
+
+%m
+Mjesec (s ili bez nule ispred)
+
+%Y
+Godina, četveroznamenkasti broj
+
+%H
+Sati od 0 do 24 (s ili bez nule ispred)
+
+%M
+Minute (s ili bez nule ispred)
+
+%S
+Sekunde (s ili bez nule ispred)
+
+%Z
+Naziv vremenske zone
+
+Primjeri i zadaci
+
+• Digitalni sat
+	• Opcija s istovremenim prikazom datuma i
+	vremena u tri različite vremenske zone
+• Izradite aplikaciju koja će ispisati sve
+termine utakmica za slijedeću sezonu, ako
+se utakmice igraju svaki drugi tjedan
+srijedom i nedjeljom.
+• Izradite aplikaciju za unos termina
+sastanka. Nakon unosa aplikacija mora
+pokazati koliko je još vremena do početka
+termina. Aplikacija mora, ovisno o
+vremenskoj zoni korisnika, za isti termin
+prikazati vrijeme unutar vremenske zone
+korisnika.
+
+Zadatak – Scheduler / Planer
+
+• Napravite aplikaciju Scheduler koja
+ima dvije klase, jedna klasa je za
+evidenciju podataka korisnicima, a
+druga za evidenciju termina
+• Za svakog korisnika, uz osnovne
+podatke čuvajte i evidenciju o
+neograničenom broju termina
+• Dodajte Modul DateTimeManager
+u kojem su definirane sve metode
+za rad s varijablama vezanim u
+datume i vrijeme
+
+Rad s
+datotekama
+
+Datoteke
+
+• Python, bez potrebe za instalacijom
+modula, podržava rad s najvažnijim
+formatima datoteka
+• Za napredni rad sa specifičnim
+tipovima datoteka (fotografije, video
+…), potrebno je instalirati
+specijalizirane, besplatne module.
+• Prvo ćemo se upoznati s uporabom
+tekstualnih datoteka (.txt, .json, .log,
+.ini, …)
+• Kada to svladamo, krenut ćemo na
+foto datoteke i njihovu obradu te
+načine kako prepoznati lice jedne ili
+više osoba na fotografiji.
+
+Dostupnost datoteke, baze, web … ?
+
+• Dok pišemo kôd koji koristi "vanjske"
+resurse (resurse koji nisu izravno u našem
+kôdu), NE smijemo smatrati da ćemo
+uvijek imati pristup tim resursima
+• Možda na računalu na kojem se izvršava
+naš kôd nemamo prava pristupa željenoj
+datoteci, možda te datoteke nema ili
+možda nemamo prava kreiranja datoteka
+• Možda računalo na kojem se izvršava naš
+kôd nema sljedeće:
+	• mrežni pristup do servera na kojem je
+	datoteka koju koristimo ili baza podataka
+	• pristup Internetu kako bi pristupili resursima
+	u Cloudu
+
+try: - except: - else: - finally:
+
+• try: – except: – else: – funally:
+• Desno je prikazan puni blok koji koristimo kada
+želimo pristupiti "vanjskom" resursu iz našeg
+kôda.
+• Try: predstavlja blok kôda koji želimo izvršiti
+• Except: predstavlja blok kôda koji će se izvršiti
+ukoliko se dogodi neka iznimka kao npr. nemamo
+pravo pristup, nema konekcije na mrežu. Može
+biti više except blokova.
+• Else: ima gotovo istu namjenu kao i Try pa se
+zato najčešće izostavlja
+• Finally: je dio kôda koji će se gotovo uvijek
+izvršiti bez obzira je li se dogodila greška ili je
+blok uspješno izvršen. Najčešće se dodaje kôd,
+koji će otpustiti zauzete "vanjske" resurse.
+
+• try:
+	• Blok naredbi
+• except Exception1 as ex1:
+	• Blok naredbi
+• except Exception2 as ex2:
+	• Blok naredbi
+• …
+• else:
+	• Blok naredbi
+• finally:
+	• Blok naredbi
+
+Tekstualne datoteke – čitanje i pisanje
+
+Tri jednostavna koraka:
+1.
+Otvori datoteku za čitanje / pisanje
+• Ovaj korak "zaključava", odnosno onemogućava drugima pristup datoteci
+• Kao da smo otvorili konekciju pomoću koje smo se povezali na datoteku
+2.
+Pročitaj sadržaj / zapiši tekst
+3.
+Zatvori datoteku – NE ZABORAVITI!
+• Ovaj korak oslobađa drugim aplikacijama pristup datoteci
+• Kao da smo zatvorili konekciju / vezu prema datoteci
+• SAVJET: Otvoriti datoteku što "kasnije" (neposredno prije korištenja) i zatvoriti najranije
+moguće (odmah nakon što više nema potrebe za pristup datoteci).
+
+with open('naziv_datoteke') as naziv
+
+• Sintaksa with open('naziv_datoteke', '[r, w, a]') as naziv: se
+koristi kako bi se konekcija prema datoteci nakon kraja
+korištenja, automatski zatvorila. Ovo je preporučeni način
+pristupa datotekama.
+	• Blok '[r, w, a]' označava najčešće korištene tipove pristupa datoteci.
+	• r – read – čitanje
+	• w – write – pisanje
+	• a – append – dodavanje na kraj
+• Metoda rstrip(), koju ima svaki tekstualni tip podatka, se koristi
+kako bi se uklonio znak '\n' na kraju teksta.
+
+FileManager Paket
+
+• Python Paket koji nudi
+mogućnost:
+	• Provjere postoji li datoteka ili
+	neka putanja do datoteke
+	• Kreiranje/otvaranje konekcije
+	prema datoteci
+	• Zapisa podataka u datoteku
+	• Dodavanja podataka u već
+	postojeću datoteku
+	• Čitanje podataka iz datoteke
+	• Zatvaranje konekcije prema
+	datoteci
+
+Contact Manager
+
+Kreirajte novi folder ContactManager
+i otvorite ga unutar VS Code kao
+novi projekt.
+Napravite jednostavnu aplikaciju
+Contact Manager koja vodi
+evidenciju o podacima Tvrtke
+(Organization), svim Kupcima
+(Customers) te svim Djelatnicima
+(Employees).
+Aplikaciju napravite tako da svaka
+komponenta ima svoj Paket sa svim
+pripadajućim modulima.
+Podaci su pohranjeni u tekstualne
+datoteke. Za rad s datotekama
+koristite zaseban Paket
+FileManager.
+
+JSON – JavaScript Object Notation
+
+• Standardni format razmjene podataka na
+Internetu
+• Tekstualni tip datoteke
+• Nekada se koristio kompliciraniji XML
+kojeg je JSON zamijenio
+• Format jednako čitljiv ljudima kao i
+računalima.
+• Python ima podršku za rad s datotekama
+u json formatu
+https://docs.python.org/3/library/json.html
+• Format zapisa sličan kao u rječniku
+(Dictionary - key:value)
+
+{
+	"ime" : "Josip",
+	"prezime" : "Jelačić Bužimski",
+	"godinaRodenja" : 1801,
+	"jeziciKojeGovori" :
+		[
+		"hrvatski",
+		"njemački"
+		"francuski",
+		"mađarski",
+		"latinski"
+		]
+}
+
+JSON u Pythonu
+
+• Importiranje modula json
+	• import json
+• Učitavanje sadržaja datoteke u json formatu
+	• varijabla1 = json.load(fileReader) ili
+	• varijabla2 = json.load(varijabla1)
+• Kreiranje tekst varijable s json formatiranim sadržajem
+	• varijabla = json.dump(data_dictionary, fileWriter, indent=4)
+	• varijabla = json.dumps(data_dictionary, indent=4)
+• Zapisivanje u datoteku – jednako kao i u prethodnim primjerima:
+	• Kreiranje i formatiranje sadržaja pomoću json.dumps() metode
+	• Pomoću with open('naziv_datoteke', 'w') as fileWriter: te
+	json.dump() metode zapisati u datoteku
+
+Address Book
+
+Stranica
+https://jsonplaceholder.typicode.com
+nudi besplatni pristup do web resursa koje ćemo
+koristiti u nekoliko primjera.
+https://jsonplaceholder.typicode.com/users
+je link s kojeg možete preuzeti popis korisnika
+prikazanih u json formatu.
+Potrebno je izraditi aplikaciju koja će koristiti
+FileManager paket za rad s datotekama te
+JsonManager za rad s JSON formatiranim
+tekstom.
+
+Contact Manager
+
+Prethodno kreiranu aplikaciju Contact
+Manager prepravite tako da se podaci
+čuvaju u JSON formatu.
+Osim podataka o Tvrtki (Organization),
+svim Kupcima (Customers), svim
+Djelatnicima (Employees)
+Proširite aplikaciju tako što ćete omogućiti
+čuvanje podataka i o Proizvodima
+(Products) tvrtke.
+Strukturu aplikacije zadržite kao što je i
+bila: svaka komponenta ima svoj Paket sa
+svim pripadajućim modulima.
+I dalje za rad s datotekama koristite Paket
+FileManager, a za rad s json formatom
+koristite novi JsonManager Paket.
+
+Rad s podacima
+s Interneta
+
+Podaci na Internetu
+
+• Ako nije na Internetu, onda ne
+postoji!
+• Ogromna količina podataka o
+svemu i svačemu
+• Tekst, audio, video …
+• Web Scraping – struganje ili
+grebanje podataka s Interneta
+
+Intelektualno vlasništvo / GDPR
+
+• Intelektualno vlasništvo
+	• RH zakonodavstvo:
+	https://www.zakon.hr/search.htm?k=2
+	• Besplatno! Za koju namjenu i pod kojim
+	uvjetima!?
+• General Data Protection Regulation
+	• Link: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+	• EU regulativa o zaštiti osobnih podataka
+	• Jako restriktivna
+
+Je li Web Scraping legalan?
+
+• Ovisi od stranice do stranice.
+• Definirano unutar datoteke
+"robots.txt" koja se nalazi u
+početnoj mapi svake stranice
+• Što Google dopušta:
+• https://www.google.com/robots.
+txt
+
+Server – client komunikacija
+
+• Web komunikacija radi na način da client (aplikacija na
+korisničkoj strani Chrome, Edge, FireFox …) pomoću URL
+adrese (npr. www.algebra.hr) pristupa sadržaju na serveru.
+• Client je aplikacija s korisničke strane koja "šalje" zahtjeve
+(request) za sadržajem.
+• Server je računalo na kojem je sadržaj koji želimo. Server
+"vraća" odgovore (response) s traženim podacima ili
+dodatnim informacijama ako traženi podaci ne postoje.
+• Postoje pravila (protocol) prema kojima komuniciraju Server
+i Client, a mi ćemo koristiti samo jedan HTTPS (P je za
+protokol, a S je za siguran / secure).
+• "Odgovor" (response) je najčešće tekst formatiran po HTML
+pravilima ili već spomenuti JSON format.
+
+http request i response komponente
+
+Http request
+
+• Request Header
+• Metoda koja označava šalje li se
+sadržaj na server ili traži od
+servera. GET, POST, PUT,
+DELETE
+• URI – adresa servera s kojim se
+povezujemo, uključuje i protokol
+komunikacije
+• Opcije koje definiraju jezik
+dokumenta, autorizaciju, klijent
+(aplikacija s koje je poslan upit) …
+• Request Body (opcionalno) –
+sadržaj
+
+Http response
+Odgovor na http request
+
+• Response Header
+• Status Code – status odgovora. Najpoznatiji
+status Code:
+404 Not Found
+• Dodatne informacije kao: protokol, status
+konekcije, server
+• Response Body – sadržaj koji smo tražili
+od servera
+
+Python Web Client
+
+• Python modul: urllib
+• import urllib.request
+• URL = 'https://www.algebra.hr'
+• konekcija = urllib.request.urlopen(URL)
+• sadrzaj = konekcija.read().decode()
+• print(sadrzaj)
+
+html – format prikaza web stranica
+
+• Tags / oznake – oznake koje označavaju tip podatka koji se
+nalazi između početne i krajnje oznake.
+• <html> … </html> - početak i kraj html stranice/dokumenta
+• <head> … </head> - dio html dokumenta koji čuva meta
+podatke o dokumentu kao lokacije popratnih datoteka, ali i
+Naslov, Opis, Autor … dokumenta
+• <body> … </body> - dio html dokumenta u kojem je sadržaj
+• Neke dodatne oznake:
+• <h1> … </h1>; <p> … </p>; <a> … </a> …
+
+Struktura ciljane stranice
+
+Preuzimanje podataka s ciljane stranice:
+
+• Otvorite stranicu u web pregledniku
+• Otvorite Izbornik desnim klikom na element koji Vam je zanimljiv
+• U izborniku kliknite na "Inspect".
+• Otvorit će se Developer Tools dio preglednika u kojem možete vidjeti
+informacije o stranici
+
+Beautiful Soup modul
+
+• Beautiful Soup je Python modul za jednostavnije "čitanje"
+(parsing) html i xml dokumenata pomoću Python programskog
+kôda.
+• Službena stranica:
+https://www.crummy.com/software/BeautifulSoup/
+• Besplatan je, ali ga je potrebno instalirati pomoći pip alata
+• pip install BeautifulSoup4
+• Svakako prije korištenja napraviti import
+• from bs4 import BeautifulSoap
+
+Beautiful Soup
+
+• import urllib.request
+• from bs4 import BeautifulSoup
+• URL = 'https://www.algebra.hr'
+• konekcija = urllib.request.urlopen(URL)
+• sadrzaj = konekcija.read().decode()
+• podaci = BeautifulSoup(sadrzaj, 'html.parser')
+• paragrafi = podaci.find_all('p')
+• for paragraf in paragrafi:
+•	print(paragraf)
+
+Demo stranica za web scraping
+
+• Webshop
+• http://books.toscrape.com/
+• Zadatak: Pronađite i ispišite sve podatke za
+najskuplju i najjeftiniju knjigu u kategoriji
+"Mystery". Podatke ispišite na ekran te ih
+pohranite u .txt datoteku
+• https://www.worldometers.info/coronavirus/
+• Stranica https://www.worldometers.info/
+nudi i druge zanimljive podatke. Odaberite
+jednu kategoriju (emisija CO2) te dohvatite
+o toj temi. Dodatno prikažite podatke
+specifične za državu po izboru
+
+Web API – podaci u html json formatu
+
+• Klasične Internet stanice koriste ljudi. Dokumenti koje takve stranice "isporučuju" su
+pisani u htm formatu.
+• Web API su Internet stranice kojima pristupaju računala. Takve stranice "isporučuju"
+dokumente u json formatu.
+• Većina Internet aplikacija koristi klasične html dokumente za prikaz podataka krajnjim
+korisnicima, a za razmjenu podataka s drugim sustavima koriste Web API i json format.
+• Koriste se http request metode za komunikaciju. GET dohvat podataka, POST kreiranje
+podataka, PUT nadogradnja podataka, DELETE brisanje i sl.
+• Primjer: Prikaz forme za prijavu na Internet stranicu je html dokument, a provjera
+podataka koje ste unijeli za prijavu se radi na Web API stranici koja će dobiti vaše
+podatke u json formatu, "pročitati" ih, provjeriti je li sve OK i vratiti podatak o rezultatu
+provjere. Taj rezultat je ponovno u json formatu, ali će se transformirati u html pa ćete
+znati jeste li ili niste ispravno unijeli podatke.
+
+Blog posts
+
+• Koristit ćemo podatke sa stranice:
+	• https://jsonplaceholder.typicode.com/
+• Posts:
+	• https://jsonplaceholder.typicode.com/posts
+• Users:
+	• https://jsonplaceholder.typicode.com/users
+• Napravite aplikaciju koja će s navedene adrese
+dohvatiti podatke o korisnicima i njihovim
+postovima
+
+Rad s foto
+datotekama
+
+Python Imaging Library (PIL) pillow
+
+• Pillow je Python modul koji je namijenjen
+jednostavnoj obradi fotografija, a baziran
+na Python PIL biblioteci (Python Imaging
+Library)
+https://pillow.readthedocs.io/en/stable/index.html
+
+DEMO – Rad s foto datotekom
+
+• .filename()
+• .format()
+• .mode()
+• .size()
+• .resize()
+• .crop()
+• .rotate()
+• .transpose()
+
+Filteri za modifikaciju fotografije
+
+• Gaussian Blur
+• Contour
+• Emboss
+• Edges
+
+Computer Vision
+
+• Znanstvena disciplina koja se bavi
+proučavanjem kako pomoću
+računala analizirati fotografije i
+video te tijekom te analize
+uočiti/prepoznati željene objekte na
+slici, odnosno videu.
+• Moguće je prepoznati ne samo
+objekt, nego i neke njegove
+karakteristike.
+
+OpenCV modul
+
+• Open source biblioteka za
+computer vision i strojno
+učenje.
+• https://opencv.org/
+• Nekoliko načina
+prepoznavanja objekata
+	• Haar Cascades
+	• DNN (Deep Neural Network)
+
+OpenCV i Haar Cascades – primjer
+
+OpenCV i DNN – primjer
+
+Koliko osoba ima na slici?
+
+• Pomoću OpenCV modula,
+koristeći oba načina
+prepoznavanja lica, prebrojite
+koliko osoba ima na slici.
+• Usporedite kvalitetu
+prepoznavanja lica ovisno o
+načinu prepoznavanja lica
+
+Rad s bazama
+podataka
+
+Baze podataka
+• Skup međusobno povezanih tabela s podacima
+• Relacija - veze između tabela
+• Postoji nekoliko tipova relacija, a najčešće korištene su:
+	• one-to-many Jedna kategorija može imati puno proizvoda, a svaki proizvod može
+	imati samo jednu kategoriju.
+	• many-to-many Jedan djelatnik može nazvati puno korisnika, a isto tako jedan
+	korisnik može dobiti pozive od puno djelatnika.
+	• one-to-one Ne koristi se često. Jedan djelatnik može imati samo jednu ID karticu,
+	a jedna ID kartica može biti dodijeljena samo jednom korisniku.
+• SQL – Programski jezik za rad s bazama podataka
+	• Structured Query Language
+	• SQL Query – Query ili Upit je naziv za naredbe u SQL jeziku za manipulaciju
+	podacima
+
+Najčešće korišteni SQL serveri
+
+• Abecednim redom:
+	• IBM DB2
+	• Microsoft SQL Server
+	• MySQL Server
+	• Oracle
+	• PostgreSQL
+	• Za testiranje te razvoj demo
+proizvoda:
+	• SQLite
+	• Microsoft SQL Server Express
+	• MySQL Server
+	• PostgreSQL
+
+NoSQL baze podataka
+
+• Postoje i baza podataka koje "nemaju" međusobno povezane
+tabele.
+• Najčešća organizacija NoSQL baze je:
+	• Collections – kolekcije koje bi se mogle poistovjetiti s tabelama
+	• Document – set podataka najčešće JSON oblika, odnosno Key : Value
+	• Graph – organizacija podataka u stabla (graph).
+• Najpoznatiji NoSQL serveri:
+	• MongoDB
+	• Cassandra
+	• Redis
+	• Couchbas
+
+Organizacija podataka u bazi podataka
+
+• Table – Tabela koja čuva podatke o objektima. Slična klasi.
+• Columns – Svaka tabela ima kolone (onoliko koliko nam je
+potrebno). Kolone su slične svojstvima u klasi
+• Rows – Svaka tabela ima redove u kojima su pohranjeni podaci
+za svaki pojedinačni objekt. Redovi predstavljaju objekte. Red u
+tabeli dodatno zovemo record.
+• Recordset – kolekcija više redaka (record-a). Može
+predstavljati cijelu tabelu ili samo jedan dio.
+Primjer recodrset sa svim proizvodima u tabeli ili samo s
+proizvodima iz kategorije tamna čokolada.
+
+SQL kratki tečaj
+
+Napravi tablicu
+CREATE TABLE nazivTablice
+(
+nazivKolone TIP,
+id INT PRIMARY KEY,
+ime VARCHAR(50) NOT NULL,
+dob int,
+ulica VARCHAR(150)
+);
+
+Izbriši tablicu
+DROP TABLE IF EXISTS nazivTablice;
+
+Rad s podacima u bazi podataka
+
+SQL Server
+
+C
+
+Kreiraj
+Create
+INSERT
+
+R
+
+Dohvati ili
+pročitaj
+Retrieve ili
+Read
+SELECT
+
+U
+
+Ažuriraj
+Update
+UPDATE
+Izbriši
+
+D
+
+Delete
+DELETE
+
+Create – INSERT INTO
+
+• Zapisivanje vrijednosti u tabelu:
+INSERT INTO nazivTabele (nazivKolone1, ...)
+VALUES (vrijednost1, ...);
+• Primjer
+INSERT INTO Djelatnici (djelatnikId, ime, prezime)
+VALUES (1, 'Petar', 'Perić');
+
+Read – SELECT * FROM nazivTabele
+
+• Dohvat podataka iz tabele:
+SELECT nazivKolone1, nazivKolone2, … FROM nazivTabele
+WHERE uvjet;
+• Dohvat dijela podataka iz tabele:
+SELECT ime, prezime FROM Djelatnici
+WHERE ime LIKE 'Pet%';
+• Dohvat svih podataka iz tabele:
+SELECT * FROM Djelatnici
+
+Update – UPDATE … WHERE uvjet
+
+• Ažuriranje vrijednosti u tabeli:
+UPDATE nazivTabele
+SET nazivKolone1 = vrijednost1,
+nazivKolone2 = vrijednost2, ...
+WHERE uvjet;
+• Primjer
+UPDATE Djelatnici
+SET ime = 'Petar Krešinir',
+prezime = 'Perić'
+WHERE djelatnikId = 1;
+
+DELETE – DELETE FROM … WHERE
+
+• Brisanje vrijednosti iz tabele:
+DELETE FROM nazivTabele
+WHERE uvjet;
+• Primjer
+DELETE FROM Djelatnici
+WHERE djelatnikId = 1;
+Izbriši SVE iz tabele Djelatnici
+DELETE FROM Djelatnici
+
+SQLite – besplatna SQL baza
+
+• SQLite – mala, jednostavna, brza,
+SQL Database aplikacija
+• Ne traži instalaciju
+• Dokumentacija na adresi:
+https://www.sqlite.org/docs.html
+• Uključen u Python instalaciju i većinu
+Linux distribucija, uključujući i MacOS
+
+Primjer
+
+• Kreirajte bazu: TvrtkaDb.db
+• Kreirajte tabelu Employees, u kojoj će
+biti pohranjeni podaci o djelatnicima
+Tvrtke
+	• id – identifikacijski broj retka
+	• name – ime i prezime djelatnika
+	• email – email adresa djelatnika
+• Omogućite CRUD operacije nad
+podacima djelatnika Tvrtke
+
+SQLAlchemy – ORM i set SQL alata
+
+• Object Relational Mapper – omogućava programeru da pomoću
+jednog programskog jezika (ne SQL-a) pristupa bazi podataka.
+• SQLAlchemy nam omogućava da za rad s bazama podataka
+koristimo Python umjesto SQL jezika.
+• Web adresa: https://www.sqlalchemy.org/
+
+Bookshop
+
+• Kreirajte aplikaciju koja će biti katalog
+knjiga dostupnih u Bookshopu.
+• Za svaku knjigu treba čuvati podatke o
+nazivu, autoru, izdavaču, cijeni i
+raspoloživosti
+• Za svakog autora treba čuvati podatke
+o imenu i prezimenu te knjigama koje je
+napisao
+• Podaci o svakom izdavaču su naziv,
+lista autora s kojima rade te lista
+izdanih knjiga
+
+Grafičko
+korisničko sučelje
+Graphical User
+Interface
+
+GUI
+
+• Prva polovica 70-ih godina
+prošlog stoljeća, Xerox PARC.
+• Apple Lisa Macintosh – danas
+MacOS
+• Unix/Linux distribucije
+• 90-ih je GUI postao standard.
+Danas je nezamislivo koristiti
+računalo bez grafičkog sučelja
+• Najrašireniji Microsoft Windows.
+• Strelovita ekspanzija je krenula
+s verzijom Windows 95
+
+Tkinter – GUI modul uključen u Python
+
+• Tk Interface – GUI modul
+uključen u osnovnu instalaciju
+• Prije korištenja obvezno uključiti
+import tkinter
+• Nakon što ste uključili Tkinter,
+možete provjeriti koju verziju
+imate instaliranu:
+tkinter.TkVersion
+• Pokrenite tkinter._test()
+• IDLE – aplikacija razvijena
+pomoću Tkinter modula.
+
+import tkinter as tk
+rootWindow = tk.Tk()
+tk.Button(rootWindow,
+	text = "Hello World!")
+	.pack()
+rootWindow.mainloop()
+
+Tkinter Widgets – male "stvarčice" na
+ekranu
+
+• Elementi koje slažemo u hijerarhijski
+odnos tako da tvore aplikaciju,
+odnosno korisničko sučelje.
+Mi ćemo ih i dalje zvati Widget
+(eng. wĭj′ĭt).
+• Svaki Widget predstavlja Python klasu
+koja ima specifična svojstva i metode.
+• Neka svojstva i metode su zajednički
+za sve Widgete ---->
+
+• Window – glavni prozor aplikacije
+• Frame – okvir za grupiranje Widgeta
+• Label – prikaz teksta i slika
+• Button – pokretanje aktivnosti
+• Checkbutton – Da/Ne izbor
+• Radiobutton – Izbor vrijednosti
+• Entry – Polje za unos teksta samo u
+jednoj liniji
+• Listbox – Okvir za prikaz liste
+podataka koji se mogu selektirati
+• Text – Unos dužeg teksta s više linija
+
+Tkinter Widgets hijerahija
+
+• Početak je UVIJEK Tk()!!!
+• Svaki slijedeći Tkinter Widget
+mora imati naveden Widget
+koji mu je roditelj (Tk() je
+roditelj za root_window jer se
+root_window nalazi unutar
+Tk(). Label2 pripada unutar
+header_frame Widgeta pa je
+on roditelj za Label2.
+
+Raspored elemenata unutar prozora
+
+• Geometry Manager
+	• Pack
+		• Slaže Widgete u okviru jedan ispod ili
+		jedan pored drugog.
+		• Nekada se često koristio, sada manje
+	• Grid
+		• Najčešće korišten način rasporeda
+		Widgeta u okviru
+		• Sličan tabeli unutar Excela
+		• Koristi kolone i redove, a prva
+		kolona/red počinje s 0 (nula)
+	• Place
+		• Slabo korišten način rasporeda
+		Widgeta.
+		• Koristi koordinate prozora u pixelima,
+		gdje gornji lijevi kut ima koordinate 0,0.
+
+Event / Event Handling
+
+• Event – događaj.
+	• klik na gumb unutar aplikacije
+	• početak unosa teksta u polje
+	• postavi strelicu miša iznad
+	Widgeta
+• Event Handling – dio kôda
+koji se izvršava kada se
+dogodi Event
+
+Password generator
+
+• Kreirati aplikaciju koja će
+generirati lozinku na osnovu
+prethodno definiranih pravila:
+	• Dužina lozinke
+	• Kompleksnost lozinke (velika i
+	mala slova, posebni znakovi)
+	• Prikaz lozinke
+• Hint: ASCII Table
+http://www.asciitable.com/
+
+Datoteke i baze podataka
+
+Datoteke
+• Rad s podacima i dalje isti
+• Prikaz podataka više nije
+konzola nego odgovarajući
+Widget
+
+Baze podatka
+• Rad s podacima i dalje isti
+• Prikaz podataka više nije
+konzola nego odgovarajući
+Widget
+
+Zadatak – Photoshop
+
+• Naučili smo učitati sliku
+pomoću PIL modula
+• Naučili smo tu sliku editirati
+• Učitajmo sliku u našu
+aplikaciju:
+	• Prikažimo originalnu sliku
+	• Pomoću gumba za svaki filter
+	koji omogućava PIL modul
+	prikažimo modificiranu sliku
+	pored originalne
+
+Zadatak – Moj profil
+
+• Napravite aplikaciju kojom ćete
+se predstaviti, a aplikacija treba
+sadržavati:
+	• Vašu fotografiju ili fotografiju koju
+	želite imati na Vašem profilu
+	• Ime i prezime
+	• Nekoliko riječi o Vama
+	• Vaše vještine
+	• Vaše iskustvo
+	• Ako želite dodati još informacija
+	samo hrabro
+
+Zadatak
+Contact Manager
+
+Za prethodno kreiranu aplikaciju Contact
+Manager, osmisliti grafičko sučelje po
+izboru te preradite aplikaciju tako da se
+sada podaci prikazuju unutar grafičkog
+sučelja.
+Dodajte i modul tako da se podaci o
+korisnicima i firmama mogu povući preko
+WebAPI upita.
+
+Smart Key
+
+Smart Key
+
+• SmartKey –
+aplikacija za kontrolu ulaza u pametnu
+kuću
+	• Evidencija svih članova uže i šire obitelji
+	kojima će biti omogućen pristup u kuću
+	(CRUD – kreiranje, čitanje, editiranje i
+	brisanje)
+	• Simulacija zvona i otključavanja ulaznih vrata
+	u kuću.
+
+
+
+
+
+
+
+
+
+04_PYTHON_INTERNET_STVARI_IOT_PREZENTACIJA
+******************************************
+
+
+
+
+
+
+
+
+
+Pythonu u
+području Internet
+stvari (IoT)
+
+Teme
+• Uvod u Internet stvari (IoT)
+• Sastavljanje i konfiguracija IoT uređaja
+• IoT uređaja kao kolektor informacija sa senzora i s Interneta
+
+Uvod u Internet
+stvari (IoT)
+
+Hey _IoT_, ugasi svjetla!
+
+• IoT je već sada jako integriran
+u naše živote
+• Veliki prodor u fitnes industriju
+pomoću pametnih satova,
+narukvica, privjesaka…
+
+Internet stvari (Internet of Things)
+
+• "The Internet of things (IoT) describes the network of physical
+objects “things” or objects that are embedded with sensors,
+software, and other technologies for the purpose of connecting
+and exchanging data with other devices and systems over
+the Internet.„
+
+IoT povijest
+
+Godina
+Uređaj
+Opis / referenca
+
+1973.
+Mario W. Cardullo patentirao prvi RFID
+US Patent US 3713148 A
+
+1982.
+Carnegie Mellon University, prvi
+samoposlužni automat za piće povezan na
+Internet. Vlasnik Coca-Cola
+Aparat je mogao je javiti kada nedostaje pića. Mogao je
+prepoznati jesu li dodani napici hladni ili ne.
+https://www.cs.cmu.edu/~coke/history_long.txt
+
+1989.
+Toste povezan na Internet predstavljen na
+konferenciji Interop '89
+IEEE Consumer Electronics Magazine (Volume: 6, Issue:
+1, Jan. 2017)
+
+1991.
+Prva kamera povezna na Interne
+Snimala je aparat za kavu u CERNu.
+https://www.cl.cam.ac.uk/coffee/qsf/coffee.html
+
+1998.
+Osnovan Bluetooth SIG
+Bluetooth Special Interest Group (“Bluetooth
+SIG”)
+Još 1996. su se udružili Intel, Nokia i Ericsson oko
+standardiziranja protokola. Kodno ime je bilo Bluetooth,
+dok marketinški stručnjaci ne smisli neko bolje.
+https://www.bluetooth.com/about-us/bluetooth-origin/
+
+2000.
+LG proizveo prvi hladnjak povezan na
+Internet
+https://en.wikipedia.org/wiki/Smart_refrigerator
+
+
+Područja primjene
+IoT je svugdje oko nas
+• Industrija
+• Potrošači
+• Trgovina, oglašavanje, financije
+• Zdravstvena industrija
+• Transport i logistika
+• Poljoprivreda
+• Okoliš i ekologija
+• Energija
+• Smart City, Vojska …
+
+Ohmov zakon
+
+Predstavlja odnos napona (oznaka U,
+jedinica Volt – V), jakosti struje (oznaka I,
+jedinica Amper – A) i električnog otpora
+(oznaka R, jedinica Ohm – Ω).
+
+Ohmov zakon
+
+• Većina računalnih komponenti
+radi na 5V, ali neke (najčešće
+senzori) rade na manje, oko
+3,5V.
+• Spajanje senzora (3,3V) na
+Raspberry Pi (5V)
+
+Elektronički senzori
+
+• Elektroničke komponente koje imaju sposobnost fizikalne
+pojave iz njihove okoline kao što je temperatura, pritisak,
+vlažnost, udaljenost … pretvoriti u električni signal.
+• Ovisno o intenzitetu vanjskog utjecaja (fizikalne pojave koju
+mjerimo), mijenjaju se svojstva materijala senzora što uzrokuje
+promjenu vrijednosti el. otpor ili el. kapaciteta senzora.
+Promjena vrijednosti el. otpora ili el. Kapaciteta nam
+omogućava mjerenje vrijednosti fizikalne pojave.
+• Pomoću Ohmovog zakona ove promjene možemo pretvoriti u
+električni signal.
+
+Neki od najčešće korištenih senzora
+
+-Vlažnost od 0% – 100%
+-Temperatura od -55° C do +125° C
+-Barometar
+	Mogućnost mjerenja i nadmorske visine
+-Vlažnost tla
+-Detektor plina
+	metan, butan, dim, alkohol, etanol …
+-Detektor pokreta
+-Ultrazvučni senzor udaljenosti
+-RFID komplet
+	čitač, kartica i privjesak
+-GPS receiver
+-Žiroskop
+-2,4 GHz Wireless
+-IC dioda (daljinski upravljač)
+-Motor
+-Kamera
+
+IoT „računala”
+
+• Raspberry Pi
+• Arduino
+• Tessel
+• Nvidia Jetson
+• SimpleLink
+• BeagleBone
+• …
+
+Raspberry Pi
+
+Potpuno računalo veličine kreditne
+kartice.
+Koristi se kao računalo koje prikuplja
+podatka s drugih, još manjih, računala,
+obrađuje ih te ih ovisno o namjeni
+prikazuje na ekran ili šalje u Cloud.
+Jedno od najpopularnijih IoT računala
+
+Raspberry Pi
+Zero W
+
+Raspberry Pi računalo, manjih
+dimenzija, bez USB priključaka, ali s
+ugrađenim
+Wi-Fi LAN i Bluetooth modulima.
+
+Raspberry Pi Pico
+
+Najmanje Raspberry Pi računalo.
+Namijenjeno je povezivanju sa
+senzorima i slanju očitanja na veće
+Raspberry Pi računalo
+
+Arduino Uno
+
+Najčešća verzija Arduino IoT računala
+Nema OS, nego ima predefinirane
+instrukcije za pokretanje u EEPROM
+memoriji.
+Dio memorije je dodijeljen korisniku za
+pohranu programa pisanog najčešće u
+C++ jeziku.
+Opensource pločica – podloga za izradu
+vlastite verzije Arduino pločice
+
+Arduino Micro
+
+Arduino veličine 48 x 18 mm
+
+Arduino Nano
+
+Jedna od najmanjih Arduino pločica.
+Nešto manjih dimenzija od verzije
+Micro i novija pločica koja ima
+integrirane:
+- Digitalni mikrofon
+-Senzor temperature, vlažnosti i
+tlaka
+-Bluetooth modul
+-Proximity i gesture senzor
+-Senzor pokreta, vibracije i
+orijentacije
+
+CROduino Pico
+
+Hrvatska inačica Arduino pločica.
+
+Nvidia Jetson
+Nano
+
+Zbog snažnog procesora pogodno za AI
+projekte.
+IoT računalo većih dimenzija, malo
+skuplje, ali zato impresivnih računalnih
+karakteristika
+
+Komunikacija unutar IoT sustava
+
+• Pojašnjenje pojma IoT Senzor: Pojam IoT Senzor ćemo dalje
+koristiti za opis sklopa senzor(i) i mini (najčešće Arduino) IoT
+računalo.
+• Osnovni elektronički senzori mogu se spojiti isključivo izravno,
+žično na neku elektroničku „pametniju” pločicu kao što je recimo
+Arduino.
+
+IoT Sustav
+
+Shematski prikaz jednog IoT sustava koji
+ima jedno centralno računalo povezano
+na Cloud uslugu preko Internet veze (na
+slici Raspberry Pi) i dva izdvojena mini
+IoT računala na koja su spojeni razni
+senzori (na slici su to Arduino računala i
+senzori).
+Kao što smo na prethodnom slideu rekli:
+uz jedno centralno računalo imamo dva
+IoT Senzora (Arduino s pripadajućim
+senzorima).
+
+Tipovi komunikacije u IoT sustavu
+
+Bežična komunikacija
+• NFC (Near-Field
+Communication)
+• RFID – radio valovi
+• Bluetooth
+• WiFi
+• Mobilna mreža (3G, LTE, 5G)
+• Satelit
+
+Žična komunikacija
+• Ethernet - UTP kabel
+• USB
+• COM – zastarjeli način
+povezivanja koji se možda
+može naći na neki jako starim
+uređajima
+
+Tri glavna uvjeta za komunikaciju u
+
+IoT sustavu
+• Potrošnja energije
+• Domet
+• Brzina protoka podataka
+
+Najčešći odnos između ovih uvjeta je:
+• Niska potrošnja energije → kratki domet → mala brzina protoka
+podataka (RFID, NFC)
+• Niska potrošnja energije → kratki domet → velika brzina protoka
+podataka (WiFi, Bluetooth, Ethernet)
+• Visoka potrošnja energije → veliki domet → velika brzina protoka
+podataka (Mobilne mreže, satelit)
+
+Primjena IoT sustava
+
+Osobna/kućanstva
+• Male kućne meteo stanice koje mjere
+temperaturu, tlak i vlažnost zraka te
+prikazuju dobivene informacije na ekranu
+• Pametni zvučnici/audio sustavi koji se
+glasovno aktiviraju
+• „Pametni uređaj” koji se može povezati na
+Internet i koji ima vezu prema nekom od
+IoT Senzora pomoću čijih podataka
+automatizirano radi neke aktivnosti
+• Razne pametne narukvice koje mjere
+puls, GPS-om prate kretanje, prikazuju
+poruke…
+
+Industrija
+• Gotovo da nema grane industrije u kojoj se
+ne primjenjuju IoT uređaji za automatizaciju
+procesa.
+• Civilna industrija kroz robotizaciju
+• Vojna industrija s ciljem kako bi se maknuli
+ljudi s ratišta ili nekih drugih lokacija koje su
+iznimno opasne po život.
+• Vojna industrija je često pokretač razvoja
+novih rješenja i primjena (jedan od
+najpoznatiji je GPS sustav).
+
+Vježba
+Gym@Cloud®
+
+Gym@Cloud® je usluga za lakše
+vježbanje. Gym@Cloud® usluga:
+-
+na osnovu odgovora na 5 pitanja, uz
+pomoć AI, kreira personalizirani
+personalizirani plan vježbanja
+-
+pomoću senzora na spravama u
+fitness centrima prati odabranu težinu,
+broj ponavljanja vježbe, a na ekranu
+uz spravu pokazuje kako se ispravno
+izvodi vježba
+Usluga nudi još puno toga, a sve s ciljem
+da se korisnici oslobode straha od fitness
+centara i počnu s vježbanjem.
+
+ZADATAK - Gym oprema
+
+Zadatak
+Praćenje usjeva pomoću IC kamera
+
+• Osječka poljoprivredna tvrtka Žito
+te zagrebačka informatička tvrtka
+IN2 su 2016. godine pokrenuli
+projekt uporabe bespilotnih letjelica
+(dronova) kako bi pomoću
+infracrvenih kamera snimali usjeve
+na poljima i tako dobili informacije
+o stanju biljaka.
+• NDVI indeks (Normalized Difference
+Vegetation Index) otkriva jesu li usjevi:
+• bolesni – treba ih tretirati
+• „žedni” – treba ih navodnjavati
+• sporo napreduju – treba li ih
+dohranjivati
+• https://www.sciencedirect.com/topics/
+earth-and-planetary-
+sciences/normalized-difference-
+vegetation-index
+
+Sastavljanje i
+konfiguracija IoT
+uređaja (računala)
+
+Raspberry Pi
+
+Ovu sliku smo već vidjeli, ali ovaj put ćemo proći kroz
+opis priključaka na ploči Raspberry Pi računala:
+
+•Procesor i RAM možemo zanemariti, jer su fiksirani
+i s njima ne možemo ništa
+•USB-C priključak za napajanje
+•USB 2/3 – priključci za USB uređaje kao recimo
+miš, tastatura, slušalice, printer …
+•Gbit Ethernet – mrežni priključak za UTP kabel.
+Raspberry Pi dolazi s integriranom WiFi mrežnom
+karticom pa je ovaj priključak opcionalan
+•Micro HDMI priključci za spajanje do 2 monitora 4K
+rezolucije
+•GPIO pinovi za povezivanje senzora i komponenti
+(kamera, motori …)
+
+1. korak – Preduvjeti
+
+• Za uspješno sastavljanje Raspberry Pi računala potrebno je
+(sve se kupuje odvojeno):
+• Raspberry Pi računalo
+• Raspberry Pi napajanje – preporuka je koristiti originalno
+• microSD kartica, minimalno 8GB kapaciteta. Na ovoj kartici će biti
+instaliran Raspbian OS te svi podaci/programi koje budete čuvali na
+Raspberry Pi računalu. Što više to bolje.
+• Čitač microSD kartica za desktop/laptop računala (pojašnjenje u 2. koraku)
+• Miš, tastatura i monitor
+• Mrežni UTP kabel za priključak na mrežu (opcionalno)
+• Senzori ili modul s integriranim senzorima (opcionalno)
+• Kućište (opcionalno)
+
+2. korak – Raspbian OS
+
+• Priprema microSD kartice
+• Instalacija OS-a na microSD karticu
+• Ovaj korak se izvodi na desktop/laptop računalu koje ima
+Windows, Linux ili MacOS operacijski sustav.
+• Raspberry Pi računalo nema proces instalacije kao druga
+desktop računala.
+
+3. Korak –
+Povezivanje
+komponenti
+
+Kada imamo spremnu microSD karticu
+sa željenim operacijskim sustavom,
+potrebno je povezati sve dijelove u jednu
+cjelinu.
+1.
+Umetnemo microSD karticu u utor sa
+strane Raspberry Pi pločice
+2.
+Priključimo miš, tipkovnicu i monitor
+3.
+Opcionalno priključimo mrežni kabel
+4.
+Priključimo Raspberry Pi napajanje
+na Raspberry Pi pločicu.
+VAŽNO To će pokretni pokretanje
+Raspberry Pi računala pa je ovo
+potrebno napraviti kao zadnji korak.
+
+4. Korak –
+Pokretanje (booting)
+i podešavanje OS-a
+
+Nakon prvog pokretanja Raspberry Pi
+računala, potrebno je podesiti postavke:
+-Mreže – IP adresa, naziv računala i sl.
+-Regionalne postavke
+-Eventualno dodati neke aplikacije
+
+Raspberry Pi OS –
+Raspbian OS baziran
+na Linux OS-u
+
+Početni ekran Raspberry Pi OS-a nakon
+instalacije i prvog pokretanja.
+Klik na gumb „Next” vodi kroz nekoliko
+koraka za podešavanje sustava:
+1.
+Jezik, vremenska zone i sl.
+2.
+Lozinka za administratorski korisnički
+račun „pi”.
+3.
+Provjera ima li dostupnih nadogradnji
+kako bi se ažurirao OS na najnoviju
+inačicu.
+
+Raspberry Pi OS
+Grafičko sučelje
+
+Grafičko sučelje Raspberry Pi OS-a:
+
+1.Alatna traka. Opis ikona s lijeva na
+desno:
+	1.Strat izbornik
+	2.Internet preglednik
+	3.File Manager
+	4.Terminal
+	5.Prozori pokrenutih aplikacija
+	6.Mrežne postavke
+	7.Postavke zvuka
+	8.Datum i vrijeme
+2.Ikona za pokretanje programa. U ovom
+primjeru Trash
+3.Prozor aplikacije – Python IDE Thonny
+4.Sadržaj Start izbornika
+
+Raspberry Pi OS – Raspbian OS
+Sistemske mape (folderi)
+
+Raspberry Pi OS / Linux
+• / - vršna mapa
+• /bin /etc /dev /usr /sys …
+sistemske mape
+• /home/korisničko_ime
+(/home/pi) – vršna mapa
+korisničkog profila
+
+Windows OS
+• C:\
+• … većinom unutar
+C:\Windwos ili C:\Program
+Files mapa
+• C:\Users\korisničko_ime
+
+Raspbian OS –
+Terminal
+
+pwd – prikaz mape u kojoj ste trenutno
+pozicionirani
+ls – list naredba za izlistavanje sadržaja
+mape u kojoj se trenutno nalazite
+mkdir – make directory naredba za
+kreiranje mape
+rmdir – remove directory naredba za
+brisanje prazne mape
+rm – remove naredba za brisanje datoteke
+cp – copy and place naredba za kopiranje
+datoteke iz jedne mape u drugu
+mv – move naredba za premještanje
+datoteke iz jedne mape u drugu
+touch – naredba za kreiranje datoteke
+
+Raspbian OS –
+Terminal networking
+
+ping – provjera je li mrežno preko mreže
+pristupiti do ciljanog računala
+hostname – list naredba za izlistavanje
+sadržaja mape u kojoj se trenutno
+nalazite
+ifconfig – naredba za ispis mrežnih
+postavki našeg računala
+
+Raspbian OS
+Ugrađene aplikacije
+
+• Osim već upoznate aplikacije Terminal, za ovaj seminar
+najzanimljivije aplikacije su:
+	• Thonny Python IDE
+	• Sense HAT Emulator
+	• Chromium Web Browser
+	• Alati iz LibreOffice grupe alata će biti korisni također
+	• Games ;-)
+• Ponekad ćemo trebati pomoć Task Managera za prisilno
+zaustavljanje aplikacija, a File Manager će olakšati snalaženje u
+mapama i datotekama (ako vam Terminal nije drag).
+
+Raspbian OS
+Ugrađena podrška za programske jezike
+
+• Python
+• Java
+• Scratch
+
+IoT uređaj kao
+kolektor informacija
+sa senzora i s
+Interneta
+
+Raspberry Pi i Python
+
+• Python 3.7.3 – pokreće se naredbom python3
+• Python 2.7.16 – pokreće se naredbom python
+• IDE koji se koristi za pisanje kôda je Thonny Python IDE.
+• Emulator senzora, ukoliko koristite virtualiziranu instalaciju
+Raspberry Pi OS-a, je Sense HAT Emulator, a Python modul za
+njegovo uključivanje u kôd je sense_emu (import sense_emu).
+
+Projekt – Enigma
+
+Napraviti program koji simulira rad
+Enigme uređaja za šifriranje komunikacije
+kojeg su koristili nacisti u 2. svjetskom
+ratu.
+Alan Turing, engleski matematičar, uspio
+probiti Enigminu šifru (uz malu pomoć
+jedne Enigma knjižice, njemačkog
+časnika sa zarobljene podmornice) i The
+Universal Turing Machine stroja kojeg je
+sam osmislio. Turing se smatra ocem
+današnjih modernih računala.
+
+Projekt – Enigma
+Tipkovnica
+
+Tipkovnica služi za unos teksta.
+Enigma je uređaj koji simetrično kriptira
+tekst, a to znači da iste postavke će neku
+riječ šifrirati i dešifrirati.
+Tipkovnicom unosimo originalni tekst da
+bismo ga šifrirali, a isto tako i šifrirani
+tekst da bismo ga dešifrirali.
+
+Projekt – Enigma
+Ploča s utikačima
+(Stackerbrett)
+
+Ploča s utikačima omogućava kreiranje
+parova slova koja će se zamjenjivati
+jedno drugo.
+Primjer par W i K. Svaki put kada se na
+tipkovnici pritisne slovo W, ono će biti
+zamijenjeno slovom K. Vrijedi i obratno,
+kada se pritisne slovo K biti će
+zamijenjeno slovom W.
+U bilježnici sa šiframa za parove slova W
+i K, A i Z te F i S, bilo bi zapisano:
+WK AZ FS
+
+Projekt – Enigma
+Rotori
+
+Ključni dio Enigminog mehanizma šifriranja.
+Postoji 5 rotora, a za šifriranje se koriste
+„samo” tri.
+Svaki rotor ima specifičan raspored slova
+koja mogu biti označena rednim brojem
+slova u abecedi (01 za A, 02 za B … 26 za
+Z) ili su jednostavno bila ugravirana slova.
+Rotori šifriraju od desna prema lijevo!
+U bilježnici sa šiframa za rotore 4, 1, 2
+(lijevi, srednji, desni) bilo bi zapisano:
+IV I II
+
+Projekt – Enigma
+Rotori
+
+Konfiguracija slova za svaki od 5 rotora
+zajedno sa slovom koje je okidač za
+okretanje slijedećeg rotora.
+
+Projekt – Enigma
+Reflektor
+
+Unutar mehanizma Enigme, postojao je
+dio koji se zvao Reflektor i njegova
+namjena je bila:
+1.Šifriranje slova kao i drugi rotor
+2.Vraćanje nakon završenog šifriranje
+natrag na još jedan prolaz kroz tri
+rotora ali sada s lijeve strane na
+desnu
+3.Nakon prolaska kroz rotore, ponovni
+prolazak kroz ploču s utikačima.
+
+Projekt – Enigma
+Lampice (ekran)
+
+Lampice su služile za prikaz slova. Jedna
+vrsta ekrana.
+Nakon što se namjesti Enigma, svaki
+puta kada se pritisne tipka na tipkovnici,
+zasvijetli jedno slovo.
+Ako upisujemo originalnu poruku,
+lampice će nam označavati slova
+šifrirane poruke, a ako upisujemo
+šifriranu poruku, lampice će nam
+prikazivati originalnu poruku.
+
+Hanojski tornjevi
+
+Pomoću programskog jezika Python
+pronaći rješenje za zagonetku Hanojski
+tornjevi.
+Potrebno je sa štapa A prebaciti sve
+ploče na štap C, ali tako da se smije
+pomicati samo jedna ploča i veća ploča
+NE smije biti postavljena na manju ploču.
+
+Raspberry Pi GPIO
+Priključci za
+senzore
+
+GPIO – General Purpose Input/Output
+Dio Raspberry Pi pločice preko kojeg se
+odvija komunikacija prema elektroničkim
+senzorima ili komponentama.
+Shematski prikaz GPIO na kojem je
+prikazana namjena pojedinih pinova.
+Interaktivni prikaz na https://pinout.xyz/
+
+Raspberry Pi
+Sense Hat
+
+Lista senzora:
+Gyroscope/angle velocity sensor:
++/-245/500/2000dps
+Accelerometer/linear accelerometer:
++/-2/4/8/16 g
+Magnetometer/magnetic (compass) sensor:
++/- 4/8/12/16 Gauss
+Barometer with an absolute scale of
+260-1260 hPa (accuracy depends on
+temperature and pressure; +/- 0,1 hPa
+under normal conditions)
+Temperature sensor (temperature accuracy
+of +/- 2°C on a scale of 0-65°C)
+Relative humidity meter (accuracy of
++/- 4.5% with a scale of 20-80% humidity, to
++/- 0.5°C with a scale of 14-40°C)
+8x8 LED matrix display
+Small joystick with 5 buttons
+
+Raspberry Pi
+Sense HAT
+Emulator
+
+Simulator Sense Hat senzorskog modula.
+Virtualizirani senzori temperature, pritiska
+i vlage zraka te žiroskop, upravljačka
+palica (joystick) i 8x8 matrica dioda.
+Sastavni dio Raspbian OS
+Program koji ćemo koristiti tijekom ovog
+programa za rad sa senzorima.
+from sense_emu import SenseHat
+
+8x8 matrica LED dioda
+
+• Prikaz podataka na „ekranu” rezolucije 64 piksela (8x8)
+• Prikaz teksta. Mogućnost prikaza teksta kao na traci (scroll)
+• Svaka LED dioda može prikazati boju definiranu RGB shemom
+• Tekst može biti prikazan u različitim bojama
+• Mogućnost „crtanja” znakova pomoću 8x8 matrice
+
+Primjeri
+Senzori Sense HAT emulatora
+
+• Čitanje podataka sa senzora.
+• Ispisivanje očitanih podataka u
+konzoli
+• Ispisivanje podataka na 8x8
+LED matrici
+• Ovisno o očitanom podatku sa
+senzora prikazati odgovarajući
+simbol u boji na 8x8 LED matrici
+ili konstruirati odgovarajuću
+„sliku”
+
+Ideje za samostalno
+istraživanje:
+• Napraviti aplikaciju s grafičkim
+sučeljem koja će prikazivati
+vrijednosti temperature, vlažnosti i
+tlaka, tekstualno, ali i pomoću
+ikona. Ikone se mijenjaju ovisno o
+očitanoj temperaturi
+• Napraviti aplikaciju s grafičkim
+sučeljem koja će prikazivati
+prethodnu ili slijedeću fotografiju
+ovisno o tome kamo je okrenut
+joystick ili Sense HAT.
+
+KriptoMarket
+
+• Aplikacija koja će prikazati
+trenutnu vrijednost 5 trenutno
+najvrijednijih kripto valuta
+• Bitcoin
+• Ethereum
+• Binarce Coin
+• …
+
+Smart Mirror
+
+po uzoru na: MagicMirror2
+Po uzoru na MagicMirror2 projekt,
+osmisliti i izraditi Smart Mirror projekt
+https://magicmirror.builders/
+
+Projekt
+My Smart home
+
+Dobili ste e-mail s upitom potencijalnog
+kupca u kojem između ostalog piše:
+„Želim uvesti automatizaciju u svoju kuću.
+Želim imati Pametnu kuću.”
+-> Koje funkcionalnosti ćete ponuditi?
+
+Meteo
+Vremenska prognoza
+
+• Weather – aplikacija za prikaz podataka o
+vremenu
+	• Trenutna temperatura u kući, vani te u gradu
+	(podaci api usluga).
+	• Vlažnost zraka u kući i izvan kuće.
+	• Tlak zraka u kući i izvan kuće.
+	• Ovisno o tome kakva je temperatura prikazati je
+	li treba nositi jaknu, zimsku odjeću i sl.
+	• Aplikacija je dio My Smart Home aplikacije i
+	treba biti integrirana u sučelje My Smart Home
+	aplikacije
+	• Dio podataka treba biti prikazan na početnoj
+	stranici My Smart Home aplikacije, a ostatak u
+	zasebnom dijelu
+
+
+
+
+
+
+
+
+
+05_PYTHON_PYTHON_U_PODATKOVNOJ_ZNANOSTI_DATA_SCIENCE_PREZENTACIJA
+*****************************************************************
+
+
+
+
+
+
+
+
+
+Python u
+podatkovnoj
+znanosti
+
+Teme
+• Uvod u podatkovnu znanost (Data Science)
+• Uvoz i priprema velike količine podataka (eng. Big Data) za
+obradu pomoću Pythona
+• Vizualizacija podataka u Pythonu
+• „Otkrivanje znanja“ (eng. Data Mining) u podacima
+
+Uvod u
+podatkovnu
+znanost
+
+Znate li…?
+newsnews
+…da Facebook na osnovi samo
+300 objekata (objava, fotografija,
+videozapisa …) koje ste „lajkali”
+može kreirati vaš psihološki profil
+bolje nego što ga mogu definirati
+vaši prijatelji ili roditelji?
+Facebook vas zna bolje od vaših
+prijatelja i roditelja.
+
+Znate li…?
+…da su se još davnih 90-ih
+godina (kraj prošlog stoljeća i
+desetljeća), u jednom američkom
+trgovačkom lancu odlučili izraditi
+ciljani reklamni letak (tiskano
+izdanje) za svakog kupca? To su
+napravili na osnovi analize
+proizvoda koje su ti kupci
+kupovali tijekom proteklih
+nekoliko mjeseci.
+Čak su, osim letka, slali i
+poseban dodatak s popustima
+kupcima koji su očekivali rođenje
+djeteta.
+
+Znate li …?
+…da je 2012. godine Obama
+(bivši predsjednik SAD-a) tijekom
+svoje kampanje angažirao
+stručnjake za analizu podataka
+kako bi doznao koji su to glasači
+koje treba još „malo pogurati”
+kako bi glasovali za njega?
+Isto je tako, Trump 2016. godine
+(bivši predsjednik SAD-a)
+angažirao stručnjake istog profila
+kako bi analizirali reklame te tako
+doznali koje su reklame
+učinkovite, a koje ne.
+
+Znate li …?
+… da se za neke medicinske
+preglede intenzivno koristi
+tehnika computer vision ili malo
+nespretno prevedeno na hrvatski
+„računalni vid”?
+Ova tehnika omogućava analizu
+rendgenskih snimki, foto ili video
+datoteka dobivenih ultrazvučnim
+ili nekim sličnim pregledima. Čak
+je moguća i analiza tako
+dobivenih podataka u realnom
+vremenu.
+
+„Big Data”
+Koliko je stvarno „BIG”?
+Trenutno:
+o je više od 5 milijardi korisnika interneta
+o je oko 50 milijardi uređaja spojeno na
+internet
+o imamo oko 5,5 milijardi GB dnevnog
+prometa podataka na internetu
+o po procjeni IDC-a (procjena iz 2018.
+godine), do 2025. ćemo godišnje kreirati
+175 milijarde TB podataka
+o više od 90% svih podataka smo kreirali u
+posljednjih pet godina
+
+Podatkovna znanost (Data Science)
+• Podatkovna znanost je interdisciplinarno područje koje koristi
+znanstvene metode, procese, algoritme i sustave za izlučivanje
+znanja i spoznaja iz strukturiranih i nestrukturiranih podataka,
+primjenu znanja s podataka sa širokog raspona domena
+aplikacije.
+• Podatkovna znanost je povezana s rudarenjem podataka,
+strojnim učenjem i velikom količinom podataka.
+
+Podatkovna
+znanost
+
+To je interdisciplinarna
+znanstvena disciplina koja
+obuhvaća:
+
+• matematičke vještine –
+poznavanje linearne algebre,
+statistike, vjerojatnosti …
+• hakerske vještine – računalno
+razmišljanje i poznavanje
+računalne znanosti
+• stručnost u području za koje
+se analiziraju podaci.
+
+Podatkovna znanost nije:
+• Big Data – predstavlja tehniku za prikupljanje, pohranu te
+obradu velike količine podataka
+• Data Mining – predstavlja tehniku za otkrivanje vitalnih i važnih
+informacija unutar podataka
+• Business Intelligence – bavi se analizom poslovnih podataka
+• Umjetna inteligencija – tehnika primjene modela dobivenih
+obradom podataka kako bi se predvidjela budućnost, događaji
+ili uočili trendovi. Koristi se u robotici, automatizaciji i sl.
+
+Data Science
+Pipeline
+
+Proces obrade podataka
+najjednostavnije se prikazuje
+pomoću lijevka u koji ulaze sirovi
+neobrađeni podaci, a izlaze
+pojednostavljene i razumljive
+informacije.
+
+Data Science Pipeline koraci:
+
+1. prikupljanje podataka
+2. „čišćenje” i prilagodba
+podataka
+3. analiza, vizualizacija i
+interpretacija podataka
+4. revizija – povremeno.
+
+Prikupljanje
+podataka
+
+Podatke možemo prikupljati na
+razne načine.
+
+- Najčešće se taj proces odvija
+automatizirano pomoću
+senzora.
+- Drugi način je da se
+korisnicima ponudi besplatna
+usluga koja onda analizira
+podatke koje korisnici kreiraju
+koristeći uslugu (društvene
+mreže i internetske usluge).
+- Treći način prikupljanja
+podataka su ankete i upitnici.
+
+„Čišćenje” i prilagodba podataka
+• Uočavanje i otklanjanje:
+• grešaka u podacima
+• krivog formata podatka
+• praznina, odnosno nepostojećih zapisa.
+
+Analiza, vizualizacija
+i interpretacija
+podataka
+
+Primjenom
+
+- računalne znanosti
+(programski jezici i aplikacije) i
+- matematičkih proračuna
+(najčešće statistički proračuni)
+analiziramo podatke kako bismo
+u njima uočili neke uzorke i dobili
+željeni odgovor.
+
+Revizija
+i čuvanje velike
+količine podataka
+
+Zbog konstantnih promjena,
+povremeno je potrebno napraviti
+reviziju analize podataka te
+dobivenih zaključaka.
+
+Danas ljudi proizvode i
+prikupljaju velike količine
+podataka. Sve te podatke treba
+negdje čuvati na siguran način,
+ali i za jednostavnu naknadnu
+uporabu.
+
+
+Python alati u
+podatkovnoj
+znanosti
+
+Anaconda
+
+Anaconda (naziv Python je bio zauzet) je
+skup Python alata i modula
+specijaliziranih za primjenu u
+podatkovnoj znanosti.
+
+Instalacijom Anaconde, u stvari
+instaliramo Python te Python alate i
+module (instalacija je konfigurabilna) koji
+su nam nužni u podatkovnoj znanosti.
+
+Umjesto brige o okruženju za analizu
+podataka, o tome se brine Anaconda,
+naše je da se posvetimo podacima.
+
+Jupyter Notebook
+• Grafički IDE za IPython
+• Pokretanje:
+• preko Anaconda Navigatora
+• iz konzole (CMD):
+• jupyter notebook.
+
+Python virtualna okruženja
+Python Virtual Environments
+
+• Česte situacije
+• Radite na više projekata. Jedan projekt zahtijeva stariju verziju Pythona jer je to
+preduvjet za ispravan rad modula koji koristite na jednom od projekata. Drugi projekt
+koristi najnoviju verziju Pythona.
+• Radite na jednom Python projektu u koji imate uključene i dodatne module.
+Nadogradite verziju Pythona (ili modula) na računalu i nakon toga vam prestane raditi
+kôd koji ste do sada napravili jer modul i Python više nisu kompatibilni.
+• Radite na starom projektu koji koristi Python 2.7 verziju.
+• Rješenje je Python Virtual Environments.
+• Python Virtual Environments omogućava instalaciju i korištenje više
+različitih verzija Pythona i modula na istom računalu, bez međusobnog
+utjecaja.
+
+Python ponavljanje
+
+Osnove Pythona
+• varijable i osnovni tipovi
+podataka
+• kolekcije podataka: liste,
+rječnici, n-terci ...
+• funkcije
+Napredni Python
+• klase
+• rad s datotekama (.csv, .txt,
+.json …)
+• rad s bazama podataka
+• rad s podacima na internetu
+
+Pandas - Python Data Analysis Library
+
+• Pandas – naziv je nastao od Panel
+Data
+• Alat za analiziranje podataka u
+Pythonu
+• Specifičan po tome što tabelu iz
+CSV-a, Excela, SQL baze
+podataka pretvori u Python objekt
+s kolonama i retcima naziva
+DataFrame
+
+Pandas DataFrame
+
+Python objekt koji Pandas kreira
+od CSV-a, Excel datoteke ili
+tabele iz SQL baze podataka.
+
+Vizualizacija podataka (Matplotlib)
+
+• Python biblioteka za izradu
+2D grafova polja podataka
+(eng. array)
+• Matplotlib omogućava:
+• grafove visoke kvalitete
+spremne za tisak
+• mogućnost ugradnje u GUI
+aplikacije
+• jednostavnu uporabu (samo
+nekoliko linija kôda).
+
+NumPy – znanstveni proračuni
+
+• NumPy – Numerical Python
+• temeljni Python paket za
+znanstvene proračune
+• NumPy donosi snagu i brzinu
+proračuna u aplikacijama
+pisanim u programskim
+jezicima C ili Fortranu, ali
+jednostavnost i lakoću
+korištenja i učenja
+programskog jezika Python
+
+NumPy – matrica
+
+• matrica je pravokutna tablica
+brojeva (jednak broj stupaca i
+redaka)
+• općenito, matrica je tablica
+koja se sastoji od objekata
+koji se mogu zbrajati i množiti
+• više o matrici u matematici:
+
+Odnos budžeta i popularnosti filma?
+
+• Pomoću podataka o filmovima,
+pokušajte odrediti kakva je veza
+između budžeta i popularnosti
+filma.
+• Pronađite postoji li neki drugi
+čimbenik koji ima utjecaj na
+kvalitetu, odnosno popularnost
+filma.
+• Koristite sljedeću datoteku:
+• Data/Filmovi/movie_dataset.csv.
+
+Tržište računala i telefona
+
+• Kombinacijom podataka o broju osobnih
+računala i mobilnih telefona te podataka o
+državi:
+• usporedite povećanje ili pad broja prodanih
+računala/mobilnih telefona s povećanjem ili
+padom udjela duga u GDP-u za pojedine
+države tijekom posljednjih 5 godina
+• provjerite ima li i kakav utjecaj postotak
+nezaposlenosti s brojevima prodaje računala,
+odnosno mobilnih telefona.
+• Koristite sljedeće datoteke:
+• Data/Trziste racunala i pametnih
+telefona/personal_computers_total.csv
+• Data/Trziste racunala i pametnih
+telefona/cell_phones_total.csv
+• Data/Trziste racunala i pametnih telefona/
+facts_countries.csv.
+
+Pismenost stanovništva
+
+• Pomoću kombinacije podataka o postotku
+pismenih osoba u stanovništvu odredite:
+• rast ili pad opismenjavanja stanovništva
+pojedine države tijekom sljedećih 5 godina
+• utjecaj odustajanja mladih od osnovnog
+školovanja na postotak pismenog stanovništva.
+• Koristite sljedeće datoteke:
+• Data/Pismenost
+stanovnistva/literacy_rate_youth_total_percent_
+of_people_ages_15_24.csv
+• Data/Pismenost stanovnistva
+literacy_rate_adult_total_percent_of_people_ag
+es_15_and_above.csv
+• Data/Pismenost stanovnistva/out-of-school-
+children-of-primary-school-age-by-world-
+region.csv.
+
+Ljudska populacija
+
+• Pomoću kombinacije podataka o broju stanovnika
+te gustoće naseljenosti po pojedinim državama
+odredite:
+• kako će se kretati broj stanovništva pojedine države
+tijekom sljedećih 5 godina
+• kretanje gustoće stanovnika na kvadratnom kilometru
+uzimajući u obzir stvarno raspoloživi prostor (oduzmite
+šume i obradivu površinu).
+• Koristite slijedeće datoteke:
+• Data/Ljudska populacija/population_total.csv
+• Data/Ljudska
+populacija/population_density_per_square_km.csv
+• Data/Ljudska
+populacija/agricultural_land_percent_of_land_area.csv
+• Data/Ljudska populacija/forest_area_sq_km.csv
+• Data/Ljudska populacija/surface_area_sq_km.csv.
+
+Najbolja država za život
+
+• Na osnovi podataka o različitim
+čimbenicima bitnim za kvalitetan život u
+nekoj državi, pronađite, prezentirajte i
+pojasnite odgovor na pitanje koja je
+država najbolja za život za:
+• a) mladu osobu do 27 godina
+• b) mladi par koji planira ili već ima malu
+djecu
+• c) osobu koja je za nekoliko mjeseci ili
+koja je već nekoliko mjeseci u mirovini.
+
+
+
+
+
+
+
+
+#*****************************************
+#* KORISNIČKI DEFINIRANI TIPOVI PODATAKA *
+#*****************************************
+
+class Racun:
+    ''' Klasa za upravljanje racunima '''
+    def __init__(self, racun_broj, 
+                    racun_datum_izdavanja, 
+                    racun_stavke, 
+                    iznos_pdva):
+        self.racun_broj = racun_broj
+        self.racun_datum_izdavanja = racun_datum_izdavanja
+        self.racun_stavke = racun_stavke
+        self.racun_ukupan_iznos = 0
+        self.iznos_pdva = iznos_pdva
+        
+        self.izracunaj_ukupan_iznos()
+
+    def izracunaj_ukupan_iznos(self):
+        for cijena in self.racun_stavke.values():
+            self.racun_ukupan_iznos += cijena
+
+
+
+
+#************
+#* DATETIME *
+#************
+
+import datetime as dt
+
+danas = dt.datetime.now()
+print(danas.strftime('%d.%m.%y %H:%M:%S'))
+
+
+
+#*******************************
+#* GRAFIČKO KORISNIČKO SUČELJE *
+#*******************************
+
+import tkinter as tk
+
+prozor =  tk.Tk()
+tk.Button(prozor,text = " Gumb ").pack()
+prozor.mainloop()
+
+
+
+#************
+#* DATOTEKA *
+#************
+
+with open("zad02.txt", "w", encoding='utf-8') as f:
+    f.write('Prvi\nDrugi\nZadnji')
+    f.close()
+
+with open("zad02.txt", "r", encoding='utf-8') as f:
+    for red in f:
+        print(red,end=',')
+    print('')
+
+#-------- ILI --------
+
+def read_file(fn):
+    with open(fn, 'r') as f:
+        return f.read()
+    
+def write_file(fn, podaci):
+    with open(fn, 'w') as f:
+        f.write(podaci)
+
+podaci = read_file("zad02.txt")
+write_file("odrediste.txt", podaci)
+
+#-------- ILI --------
+
+izvještaj = 'Razno'
+  
+datoteka = open('ispis.txt', 'w')
+datoteka.write(izvještaj)
+datoteka.close()
+
+#**********
+#* SQLite *
+#**********
+
+import sqlite3
+
+# povezivanje sa bazom
+def connect2database(file_name):
+    conn = sqlite3.connect(file_name)
+    return conn
+
+# stvaranje tablice
+def create_table(conn, table_name, columns):
+    cursor = conn.cursor()
+    cursor.execute(f"CREATE TABLE IF NOT EXISTS {table_name} ({','.join(columns)})")
+    conn.commit()
+
+# unos podataka u tablicu
+def insert_data(conn, table_name, data):
+    cursor = conn.cursor()
+    sql = f"INSERT INTO {table_name} VALUES ({','.join(['?' for _ in data])})"
+    cursor.execute(str(sql), data)
+    conn.commit()
+
+conn = connect2database("myBase.db")
+create_table(conn, "tabela", ["ID", "ime", "prezime", "klub"])
+insert_data(conn, "tabela", [1, "Ivan", "Horvat", "Liverpul"])
+insert_data(conn, "tabela", [2, "Drugi", "Treći", "Varteks"])
+
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM tabela")
+for row in cursor:
+    print(row)
+	
+#-------- ILI --------
+
+import sqlite3
+conn = sqlite3.connect("baza2.db")
+cursor = conn.cursor()
+
+cursor.execute("CREATE TABLE IF NOT EXISTS podaci (id INTEGER PRIMARY KEY, ime TEXT, prezime TEXT)")
+cursor.execute("INSERT INTO podaci ( ime , prezime ) VALUES ('IVO', 'IVIĆ')")
+cursor.execute("SELECT * FROM podaci")
+
+for row in cursor:
+    print(row)
+
+conn.commit()
+conn.close()
+
